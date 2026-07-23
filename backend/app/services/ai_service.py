@@ -85,6 +85,11 @@ class AIService:
         prompt_lower = prompt.lower()
         db = self.db
 
+        if "copilot" in system.lower() or "procurement" in prompt_lower or any(
+            k in prompt_lower for k in ["hi", "hello", "hey", "help", "order", "shipment", "supplier", "inventory", "stock", "warehouse", "delay", "risk", "status", "summary", "snapshot"]
+        ):
+            return self._mock_copilot_response(prompt_lower, db)
+
         if "forecast" in prompt_lower or "demand" in prompt_lower:
             sku = context.get("sku", "SKU-001")
             return (
@@ -97,7 +102,7 @@ class AIService:
         if "supplier" in prompt_lower or "risk" in prompt_lower or "vendor" in prompt_lower:
             if db:
                 high_risk = db.query(Supplier).filter(Supplier.risk_level == "high").all()
-                names = ", ".join(s.name for s in high_risk[:3])
+                names = ", ".join(s.name for s in high_risk[:3]) if high_risk else "None"
                 return (
                     f"Supplier risk assessment: {len(high_risk)} high-risk suppliers identified "
                     f"({names}). Primary concerns include declining on-time delivery rates, "
@@ -105,9 +110,6 @@ class AIService:
                     f"Recommend diversifying sourcing for critical SKUs and initiating contract renegotiations."
                 )
             return "Three suppliers flagged as high-risk due to delivery delays and quality incidents."
-
-        if "copilot" in system.lower() or "procurement" in prompt_lower or "order" in prompt_lower:
-            return self._mock_copilot_response(prompt_lower, db)
 
         if "document" in prompt_lower or "invoice" in prompt_lower:
             vendor = context.get("vendor", "Unknown Vendor")
@@ -118,66 +120,87 @@ class AIService:
                 f"Recommend processing for payment approval within standard workflow."
             )
 
-        if "executive" in prompt_lower or "report" in prompt_lower or "summary" in prompt_lower:
+        if "executive" in prompt_lower or "report" in prompt_lower:
             return self._mock_executive_summary(db)
 
         if "insight" in prompt_lower or "dashboard" in prompt_lower:
             return self._mock_insights_text(db)
 
-        return (
-            "Based on current supply chain data, operations are stable with moderate risk exposure. "
-            "Key focus areas: supplier diversification, warehouse capacity optimization, and "
-            "shipment delay mitigation. Recommend reviewing high-risk suppliers this week."
-        )
+        return self._mock_copilot_response(prompt_lower, db)
 
     def _mock_copilot_response(self, prompt_lower: str, db: Session | None) -> str:
         if not db:
-            return "I can help with procurement questions. Try asking about suppliers, orders, or shipments."
+            return (
+                "Hello! I am your Operyx AI Procurement Copilot. "
+                "I can answer questions about suppliers, purchase orders, inventory, warehouse utilization, and delayed shipments."
+            )
 
-        if "delayed" in prompt_lower or "delay" in prompt_lower:
+        if any(w in prompt_lower for w in ["hi", "hello", "hey", "who are you", "what can you do"]):
+            return (
+                "👋 Hello! I am your Operyx AI Procurement Copilot.\n\n"
+                "You can ask me questions like:\n"
+                "• 'Which shipments are delayed?'\n"
+                "• 'Show high-risk suppliers'\n"
+                "• 'What inventory is low on stock?'\n"
+                "• 'Show recent purchase orders'\n"
+                "• 'Warehouse capacity status'"
+            )
+
+        if "delayed" in prompt_lower or "delay" in prompt_lower or "shipment" in prompt_lower or "carrier" in prompt_lower:
             delayed = db.query(Shipment).filter(Shipment.status == "delayed").count()
             at_risk = db.query(Shipment).filter(Shipment.status == "at_risk").count()
             shipments = db.query(Shipment).filter(Shipment.status.in_(["delayed", "at_risk"])).limit(5).all()
-            details = "\n".join(f"• {s.tracking_number}: {s.supplier_name} → {s.destination} (ETA: {s.eta})" for s in shipments)
-            return (
-                f"Currently tracking {delayed} delayed and {at_risk} at-risk shipments:\n{details}\n\n"
-                f"Recommendation: Contact carriers for Pacific Metals Corp and GlobalChem shipments first."
-            )
+            if shipments:
+                details = "\n".join(f"• {s.tracking_number}: {s.supplier_name} → {s.destination} (ETA: {s.eta or 'TBD'})" for s in shipments)
+                return (
+                    f"Currently tracking {delayed} delayed and {at_risk} at-risk shipments:\n{details}\n\n"
+                    f"Recommendation: Contact carriers for delayed shipments first."
+                )
+            return "All shipments are currently on schedule with no recorded delays."
 
-        if "high risk" in prompt_lower or "risk" in prompt_lower:
+        if "high risk" in prompt_lower or "risk" in prompt_lower or "supplier" in prompt_lower or "vendor" in prompt_lower:
             suppliers = db.query(Supplier).filter(Supplier.risk_level == "high").all()
-            lines = "\n".join(
-                f"• {s.name}: Risk score {s.risk_score}, OTD {s.on_time_delivery_pct}%, "
-                f"{s.quality_incidents} quality incidents"
-                for s in suppliers
-            )
-            return f"High-risk suppliers ({len(suppliers)}):\n{lines}\n\nConsider backup suppliers for critical components."
+            if suppliers:
+                lines = "\n".join(
+                    f"• {s.name}: Risk score {s.risk_score}, OTD {s.on_time_delivery_pct}%, "
+                    f"{s.quality_incidents} quality incidents"
+                    for s in suppliers
+                )
+                return f"High-risk suppliers ({len(suppliers)}):\n{lines}\n\nConsider backup suppliers for critical components."
+            return "No high-risk suppliers detected. All vendors meet performance criteria."
 
-        if "inventory" in prompt_lower or "stock" in prompt_lower:
+        if "inventory" in prompt_lower or "stock" in prompt_lower or "reorder" in prompt_lower or "sku" in prompt_lower:
             low_stock = db.query(Inventory).filter(Inventory.quantity < Inventory.reorder_point).limit(5).all()
             if low_stock:
-                lines = "\n".join(f"• {i.sku} ({i.product_name}): {i.quantity} units at {i.warehouse_name}" for i in low_stock)
-                return f"Low stock alerts:\n{lines}\n\nRecommend placing replenishment orders within 48 hours."
-            return "Inventory levels are within acceptable ranges across all warehouses."
+                lines = "\n".join(f"• {i.sku} ({i.product_name}): {i.quantity} units at {i.warehouse_name} (Reorder point: {i.reorder_point})" for i in low_stock)
+                return f"Low stock alerts ({len(low_stock)} SKUs below reorder point):\n{lines}\n\nRecommend placing replenishment orders within 48 hours."
+            return "Inventory levels are within acceptable safety ranges across all warehouses."
 
-        if "order" in prompt_lower or "po" in prompt_lower:
+        if "order" in prompt_lower or "po" in prompt_lower or "purchase" in prompt_lower:
             pending = db.query(Order).filter(Order.status == "pending").count()
-            recent = db.query(Order).order_by(Order.id.desc()).limit(3).all()
-            lines = "\n".join(f"• {o.po_number}: {o.supplier_name} - ${o.total_amount:,.2f} ({o.status})" for o in recent)
-            return f"There are {pending} pending purchase orders. Recent orders:\n{lines}"
+            recent = db.query(Order).order_by(Order.id.desc()).limit(5).all()
+            if recent:
+                lines = "\n".join(f"• {o.po_number}: {o.supplier_name} - ${o.total_amount:,.2f} ({o.status})" for o in recent)
+                return f"There are {pending} pending purchase orders. Recent orders:\n{lines}"
+            return "No active purchase orders found in the system."
 
-        if "warehouse" in prompt_lower or "capacity" in prompt_lower:
+        if "warehouse" in prompt_lower or "capacity" in prompt_lower or "utilization" in prompt_lower:
             warehouses = db.query(Warehouse).all()
-            lines = "\n".join(f"• {w.name}: {w.utilization_pct}% utilized ({w.used_units:,}/{w.capacity_units:,} units)" for w in warehouses)
-            return f"Warehouse utilization:\n{lines}\n\nChicago DC approaching capacity — consider redistribution."
+            if warehouses:
+                lines = "\n".join(f"• {w.name}: {w.utilization_pct}% utilized ({w.used_units:,}/{w.capacity_units:,} units)" for w in warehouses)
+                return f"Warehouse utilization overview:\n{lines}"
+            return "No warehouse utilization data available."
 
         total_orders = db.query(Order).count()
         total_suppliers = db.query(Supplier).count()
         delayed = db.query(Shipment).filter(Shipment.status == "delayed").count()
+        high_risk = db.query(Supplier).filter(Supplier.risk_level == "high").count()
         return (
-            f"Supply chain snapshot: {total_orders} active POs, {total_suppliers} suppliers, "
-            f"{delayed} delayed shipments. Overall health is moderate. "
-            f"Ask me about specific suppliers, shipments, inventory, or orders."
+            f"Supply chain overview for your prompt: '{prompt[:60]}...'\n\n"
+            f"• Active Purchase Orders: {total_orders}\n"
+            f"• Total Suppliers: {total_suppliers} ({high_risk} high-risk)\n"
+            f"• Delayed Shipments: {delayed}\n\n"
+            f"Try asking specifically about 'delayed shipments', 'high risk suppliers', 'low inventory', or 'purchase orders'."
         )
 
     def _mock_executive_summary(self, db: Session | None) -> str:
