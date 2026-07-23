@@ -1,4 +1,12 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const getApiBase = () => {
+  let url = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
+    url = `https://${url}`;
+  }
+  return url;
+};
+
+const API_BASE = getApiBase();
 
 async function fetchApi<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {
