@@ -41,11 +41,30 @@ class AIService:
             lines.append(f"- {key}: {value}")
         return "\n".join(lines)
 
+    def _get_db_context_str(self) -> str:
+        if not self.db:
+            return ""
+        try:
+            orders = self.db.query(Order).count()
+            delayed = self.db.query(Shipment).filter(Shipment.status == "delayed").count()
+            suppliers = self.db.query(Supplier).filter(Supplier.risk_level == "high").all()
+            supplier_names = ", ".join(s.name for s in suppliers[:3]) if suppliers else "None"
+            low_stock = self.db.query(Inventory).filter(Inventory.quantity < Inventory.reorder_point).count()
+            return (
+                f"\nLive Database Context:\n"
+                f"- Active Orders: {orders}\n"
+                f"- Delayed Shipments: {delayed}\n"
+                f"- High-Risk Suppliers: {len(suppliers)} ({supplier_names})\n"
+                f"- Low-Stock Items: {low_stock}\n"
+            )
+        except Exception:
+            return ""
+
     async def _call_claude(self, prompt: str, context: dict, system: str) -> str:
         import anthropic
 
         client = anthropic.AsyncAnthropic(api_key=self.settings.anthropic_api_key)
-        full_system = f"{system}\n\n{self._build_context_block(context)}".strip()
+        full_system = f"{system}{self._get_db_context_str()}\n\n{self._build_context_block(context)}".strip()
         message = await client.messages.create(
             model="claude-sonnet-4-20250514",
             max_tokens=1024,
@@ -58,7 +77,7 @@ class AIService:
         from openai import AsyncOpenAI
 
         client = AsyncOpenAI(api_key=self.settings.openai_api_key)
-        full_system = f"{system}\n\n{self._build_context_block(context)}".strip()
+        full_system = f"{system}{self._get_db_context_str()}\n\n{self._build_context_block(context)}".strip()
         response = await client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
@@ -75,7 +94,12 @@ class AIService:
         try:
             genai.configure(api_key=self.settings.google_api_key)
             model = genai.GenerativeModel("gemini-1.5-flash")
-            full_prompt = f"{system}\n\n{self._build_context_block(context)}\n\n{prompt}"
+            full_prompt = (
+                f"System: {system or 'You are an AI supply chain & procurement assistant.'}\n"
+                f"{self._get_db_context_str()}\n"
+                f"{self._build_context_block(context)}\n\n"
+                f"User Question: {prompt}"
+            )
             response = await model.generate_content_async(full_prompt)
             return response.text
         except Exception:
