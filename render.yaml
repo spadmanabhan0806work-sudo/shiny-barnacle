@@ -1,0 +1,45 @@
+services:
+  # Backend API Service (FastAPI)
+  - type: web
+    name: operyx-api
+    env: docker
+    dockerfilePath: docker/Dockerfile.api
+    dockerContext: .
+    plan: free
+    region: singapore
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: operyx-db
+          property: connectionString
+      - key: STT_PROVIDER
+        value: mock
+      - key: LLM_PROVIDER
+        value: mock
+      - key: STORAGE_BACKEND
+        value: local
+      - key: STORAGE_LOCAL_PATH
+        value: /app/data/uploads
+
+  # Frontend Dashboard Service (Next.js)
+  - type: web
+    name: operyx-dashboard
+    env: docker
+    dockerfilePath: docker/Dockerfile.dashboard
+    dockerContext: .
+    plan: free
+    region: singapore
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: operyx-api
+          property: url
+
+databases:
+  # PostgreSQL Database
+  - name: operyx-db
+    databaseName: operyx
+    user: operyx
+    plan: free
+    region: singapore
