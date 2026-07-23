@@ -31,32 +31,32 @@ class GeminiLLMAdapter:
         *,
         prompt_version: str,
     ) -> StructuredExtractionResult:
-        import google.generativeai as genai
+        try:
+            import google.generativeai as genai
 
-        if self._api_key:
-            genai.configure(api_key=self._api_key)
+            if self._api_key:
+                genai.configure(api_key=self._api_key)
 
-        bundle = None
-        if self._registry:
-            try:
-                bundle = self._registry.load(prompt_version)
-                user_prompt = self._registry.render_user_prompt(bundle, transcript)
-                system_prompt = bundle.system_prompt
-            except Exception:
+            bundle = None
+            if self._registry:
+                try:
+                    bundle = self._registry.load(prompt_version)
+                    user_prompt = self._registry.render_user_prompt(bundle, transcript)
+                    system_prompt = bundle.system_prompt
+                except Exception:
+                    system_prompt = "Extract trading intent from the transcript. Return JSON only."
+                    user_prompt = f"Transcript:\n{transcript}"
+            else:
                 system_prompt = "Extract trading intent from the transcript. Return JSON only."
                 user_prompt = f"Transcript:\n{transcript}"
-        else:
-            system_prompt = "Extract trading intent from the transcript. Return JSON only."
-            user_prompt = f"Transcript:\n{transcript}"
 
-        model = genai.GenerativeModel(self._model)
-        full_prompt = (
-            f"{system_prompt}\n\n"
-            f"User input:\n{user_prompt}\n\n"
-            f"Respond ONLY with valid JSON matching this schema:\n{json.dumps(schema)}"
-        )
+            model = genai.GenerativeModel(self._model)
+            full_prompt = (
+                f"{system_prompt}\n\n"
+                f"User input:\n{user_prompt}\n\n"
+                f"Respond ONLY with valid JSON matching this schema:\n{json.dumps(schema)}"
+            )
 
-        try:
             response = await model.generate_content_async(full_prompt)
             raw_text = response.text.strip()
             if raw_text.startswith("```json"):
