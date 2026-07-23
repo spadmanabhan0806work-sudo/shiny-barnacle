@@ -12,6 +12,8 @@ COPY config ./config
 COPY prompts ./prompts
 COPY alembic ./alembic
 COPY alembic.ini ./
+COPY eval ./eval
+COPY data ./data
 
 RUN pip install --no-cache-dir -e ".[dev]"
 
