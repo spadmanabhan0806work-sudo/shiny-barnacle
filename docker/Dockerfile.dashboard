@@ -1,16 +1,22 @@
 FROM node:20-alpine AS builder
 
 WORKDIR /app
-COPY dashboard/package.json dashboard/package-lock.json* ./
-RUN npm ci 2>/dev/null || npm install
-COPY dashboard/ .
+COPY frontend/package.json frontend/package-lock.json* ./
+RUN npm install
+COPY frontend/ .
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-FROM node:20-alpine
+FROM node:20-alpine AS runner
 WORKDIR /app
+
 ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV HOSTNAME="0.0.0.0"
+
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+
 EXPOSE 3000
-CMD ["node", "server.js"]
+
+CMD ["sh", "-c", "if [ -f server.js ]; then node server.js; elif [ -f frontend/server.js ]; then node frontend/server.js; else npx next start -p ${PORT:-3000}; fi"]
