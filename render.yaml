@@ -12,6 +12,10 @@ services:
         fromDatabase:
           name: operyx-db
           property: connectionString
+      - key: DATABASE_URL_SYNC
+        fromDatabase:
+          name: operyx-db
+          property: connectionString
       - key: STT_PROVIDER
         value: mock
       - key: LLM_PROVIDER

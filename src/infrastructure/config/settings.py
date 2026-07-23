@@ -21,10 +21,19 @@ class Settings(BaseSettings):
         default="postgresql+asyncpg://operyx:operyx@localhost:5432/operyx",
         alias="DATABASE_URL",
     )
-    database_url_sync: str = Field(
-        default="postgresql://operyx:operyx@localhost:5432/operyx",
+    raw_database_url_sync: str = Field(
+        default="",
         alias="DATABASE_URL_SYNC",
     )
+
+    @property
+    def database_url_sync(self) -> str:
+        url = self.raw_database_url_sync or self.database_url
+        if url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql://", 1)
+        elif url.startswith("postgresql+asyncpg://"):
+            url = url.replace("postgresql+asyncpg://", "postgresql://", 1)
+        return url
     storage_backend: str = Field(default="local", alias="STORAGE_BACKEND")
     storage_local_path: str = Field(default="./data/uploads", alias="STORAGE_LOCAL_PATH")
     stt_provider: str = Field(default="mock", alias="STT_PROVIDER")
