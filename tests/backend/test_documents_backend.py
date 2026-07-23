@@ -1,5 +1,4 @@
 import pytest
-from app.services.document_service import DocumentService
 
 @pytest.mark.asyncio
 async def test_list_document_samples(backend_client):

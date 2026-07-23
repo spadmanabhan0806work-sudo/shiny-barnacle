@@ -6,16 +6,16 @@ backend_path = str(Path(__file__).resolve().parents[2] / "backend")
 if backend_path not in sys.path:
     sys.path.insert(0, backend_path)
 
-import pytest
-import pytest_asyncio
-from httpx import ASGITransport, AsyncClient
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.pool import StaticPool
+import pytest  # noqa: E402
+import pytest_asyncio  # noqa: E402
+from httpx import ASGITransport, AsyncClient  # noqa: E402
+from sqlalchemy import create_engine  # noqa: E402
+from sqlalchemy.orm import sessionmaker  # noqa: E402
+from sqlalchemy.pool import StaticPool  # noqa: E402
 
-from app.database import Base, get_db
-from app.main import app
-from app.seed import seed_database
+from app.database import Base, get_db  # noqa: E402
+from app.main import app  # noqa: E402
+from app.seed import seed_database  # noqa: E402
 
 # Create shared in-memory sqlite engine with StaticPool for backend tests
 engine = create_engine(

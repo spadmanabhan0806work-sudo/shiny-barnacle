@@ -1,6 +1,5 @@
 import pytest
 from app.services.dashboard_service import DashboardService
-from app.models import Supplier, Warehouse, Order, SalesHistory
 
 @pytest.mark.asyncio
 async def test_dashboard_kpis_endpoint(backend_client):
