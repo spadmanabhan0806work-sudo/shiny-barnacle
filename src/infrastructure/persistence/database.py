@@ -16,6 +16,11 @@ def get_engine():
     if _engine is None:
         settings = get_settings()
         url = settings.database_url
+        if url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql+asyncpg://", 1)
+        elif url.startswith("postgresql://") and not url.startswith("postgresql+asyncpg://"):
+            url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+
         if url.startswith("sqlite"):
             _engine = create_async_engine(
                 url,
@@ -24,7 +29,15 @@ def get_engine():
                 poolclass=NullPool,
             )
         else:
-            _engine = create_async_engine(url, echo=False)
+            _engine = create_async_engine(
+                url,
+                echo=False,
+                pool_size=getattr(settings, "db_pool_size", 20),
+                max_overflow=getattr(settings, "db_max_overflow", 20),
+                pool_timeout=getattr(settings, "db_pool_timeout", 30),
+                pool_recycle=getattr(settings, "db_pool_recycle", 1800),
+                pool_pre_ping=True,
+            )
     return _engine
 
 

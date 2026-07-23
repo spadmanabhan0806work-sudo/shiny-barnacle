@@ -39,6 +39,10 @@ class Settings(BaseSettings):
     api_port: int = Field(default=8000, alias="API_PORT")
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
     auth_enabled: bool = Field(default=False, alias="AUTH_ENABLED")
+    db_pool_size: int = Field(default=20, alias="DB_POOL_SIZE")
+    db_max_overflow: int = Field(default=20, alias="DB_MAX_OVERFLOW")
+    db_pool_timeout: int = Field(default=30, alias="DB_POOL_TIMEOUT")
+    db_pool_recycle: int = Field(default=1800, alias="DB_POOL_RECYCLE")
 
     yaml_config: dict[str, Any] = Field(default_factory=dict, exclude=True)
 
