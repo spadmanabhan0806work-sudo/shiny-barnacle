@@ -1,12 +1,20 @@
-const getApiBase = () => {
-  let url = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const getApiBase = (): string => {
+  let url = process.env.NEXT_PUBLIC_API_URL || "";
+
+  if (typeof window !== "undefined") {
+    const hostname = window.location.hostname;
+    if (hostname.endsWith(".onrender.com")) {
+      const apiHost = hostname.replace("operyx-dashboard", "operyx-api");
+      return `https://${apiHost}`;
+    }
+  }
+
   if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
     url = `https://${url}`;
   }
-  return url;
-};
 
-const API_URL = getApiBase();
+  return url || "http://localhost:8000";
+};
 
 export interface TranscriptSegment {
   start: number;
@@ -80,26 +88,26 @@ export interface ReviewItem {
 }
 
 export async function listCalls(): Promise<{ calls: Call[]; total: number }> {
-  const res = await fetch(`${API_URL}/api/v1/calls`, { cache: "no-store" });
+  const res = await fetch(`${getApiBase()}/api/v1/calls`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch calls");
   return res.json();
 }
 
 export async function getCall(callId: string): Promise<Call> {
-  const res = await fetch(`${API_URL}/api/v1/calls/${callId}`, { cache: "no-store" });
+  const res = await fetch(`${getApiBase()}/api/v1/calls/${callId}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch call");
   return res.json();
 }
 
 export function getCallAudioUrl(callId: string): string {
-  return `${API_URL}/api/v1/calls/${callId}/audio`;
+  return `${getApiBase()}/api/v1/calls/${callId}/audio`;
 }
 
 export async function reprocessCall(
   callId: string,
   promptVersion?: string
 ): Promise<Call> {
-  const res = await fetch(`${API_URL}/api/v1/calls/${callId}/reprocess`, {
+  const res = await fetch(`${getApiBase()}/api/v1/calls/${callId}/reprocess`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ prompt_version: promptVersion ?? null }),
@@ -109,7 +117,7 @@ export async function reprocessCall(
 }
 
 export async function listReviews(): Promise<{ reviews: ReviewItem[]; total: number }> {
-  const res = await fetch(`${API_URL}/api/v1/reviews?status=pending`, { cache: "no-store" });
+  const res = await fetch(`${getApiBase()}/api/v1/reviews?status=pending`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch reviews");
   return res.json();
 }
@@ -119,7 +127,7 @@ export async function updateReview(
   action: "approve" | "correct",
   correctedFields?: Record<string, unknown>
 ): Promise<ReviewItem> {
-  const res = await fetch(`${API_URL}/api/v1/reviews/${reviewId}`, {
+  const res = await fetch(`${getApiBase()}/api/v1/reviews/${reviewId}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -133,7 +141,7 @@ export async function updateReview(
 }
 
 export async function getAnnotation(callId: string): Promise<Annotation | null> {
-  const res = await fetch(`${API_URL}/api/v1/annotations/${callId}`, { cache: "no-store" });
+  const res = await fetch(`${getApiBase()}/api/v1/annotations/${callId}`, { cache: "no-store" });
   if (res.status === 404) return null;
   if (!res.ok) throw new Error("Failed to fetch annotation");
   return res.json();
@@ -144,7 +152,7 @@ export async function createAnnotation(data: {
   annotator_id: string;
   ground_truth: GroundTruth;
 }): Promise<Annotation> {
-  const res = await fetch(`${API_URL}/api/v1/annotations`, {
+  const res = await fetch(`${getApiBase()}/api/v1/annotations`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -159,7 +167,7 @@ export async function createAnnotation(data: {
 export async function uploadCall(file: File): Promise<Call> {
   const formData = new FormData();
   formData.append("file", file);
-  const res = await fetch(`${API_URL}/api/v1/calls`, {
+  const res = await fetch(`${getApiBase()}/api/v1/calls`, {
     method: "POST",
     body: formData,
   });
@@ -210,13 +218,13 @@ export async function listEvaluations(): Promise<{
   evaluations: EvaluationRun[];
   total: number;
 }> {
-  const res = await fetch(`${API_URL}/api/v1/evaluations`, { cache: "no-store" });
+  const res = await fetch(`${getApiBase()}/api/v1/evaluations`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch evaluations");
   return res.json();
 }
 
 export async function getEvaluation(evalId: string): Promise<EvaluationRun> {
-  const res = await fetch(`${API_URL}/api/v1/evaluations/${evalId}`, {
+  const res = await fetch(`${getApiBase()}/api/v1/evaluations/${evalId}`, {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch evaluation");
@@ -228,7 +236,7 @@ export async function runEvaluation(options?: {
   use_db_annotations?: boolean;
   prompt_version?: string;
 }): Promise<EvaluationRun> {
-  const res = await fetch(`${API_URL}/api/v1/evaluations`, {
+  const res = await fetch(`${getApiBase()}/api/v1/evaluations`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -256,7 +264,7 @@ export async function batchUploadCalls(files: File[]): Promise<BatchUploadResult
   for (const file of files) {
     formData.append("files", file);
   }
-  const res = await fetch(`${API_URL}/api/v1/calls/batch`, {
+  const res = await fetch(`${getApiBase()}/api/v1/calls/batch`, {
     method: "POST",
     body: formData,
   });
@@ -268,7 +276,7 @@ export async function batchUploadCalls(files: File[]): Promise<BatchUploadResult
 }
 
 export function exportBatchUrl(batchId: string, format: "json" | "xlsx" = "json"): string {
-  return `${API_URL}/api/v1/exports/${batchId}?format=${format}`;
+  return `${getApiBase()}/api/v1/exports/${batchId}?format=${format}`;
 }
 
 export interface PromptVersion {
@@ -283,7 +291,7 @@ export async function listPrompts(): Promise<{
   prompts: PromptVersion[];
   active_version: string;
 }> {
-  const res = await fetch(`${API_URL}/api/v1/prompts`, { cache: "no-store" });
+  const res = await fetch(`${getApiBase()}/api/v1/prompts`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch prompts");
   return res.json();
 }

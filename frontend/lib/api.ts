@@ -1,15 +1,24 @@
-const getApiBase = () => {
-  let url = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const getApiBase = (): string => {
+  let url = process.env.NEXT_PUBLIC_API_URL || "";
+
+  if (typeof window !== "undefined") {
+    const hostname = window.location.hostname;
+    if (hostname.endsWith(".onrender.com")) {
+      const apiHost = hostname.replace("operyx-dashboard", "operyx-api");
+      return `https://${apiHost}`;
+    }
+  }
+
   if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
     url = `https://${url}`;
   }
-  return url;
+
+  return url || "http://localhost:8000";
 };
 
-const API_BASE = getApiBase();
-
 async function fetchApi<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, {
+  const baseUrl = getApiBase();
+  const res = await fetch(`${baseUrl}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -167,7 +176,7 @@ export const api = {
   uploadForecastCsv: async (file: File) => {
     const form = new FormData();
     form.append("file", file);
-    const res = await fetch(`${API_BASE}/api/forecast/upload`, { method: "POST", body: form });
+    const res = await fetch(`${getApiBase()}/api/forecast/upload`, { method: "POST", body: form });
     if (!res.ok) throw new Error(await res.text());
     return res.json();
   },
@@ -180,7 +189,7 @@ export const api = {
     const form = new FormData();
     form.append("file", file);
     form.append("doc_type", docType);
-    const res = await fetch(`${API_BASE}/api/documents/upload`, { method: "POST", body: form });
+    const res = await fetch(`${getApiBase()}/api/documents/upload`, { method: "POST", body: form });
     if (!res.ok) throw new Error(await res.text());
     return res.json();
   },
