@@ -2,7 +2,7 @@ services:
   # Backend API Service (FastAPI)
   - type: web
     name: operyx-api
-    env: docker
+    runtime: docker
     dockerfilePath: docker/Dockerfile.api
     dockerContext: .
     plan: free
@@ -24,7 +24,7 @@ services:
   # Frontend Dashboard Service (Next.js)
   - type: web
     name: operyx-dashboard
-    env: docker
+    runtime: docker
     dockerfilePath: docker/Dockerfile.dashboard
     dockerContext: .
     plan: free
@@ -34,7 +34,7 @@ services:
         fromService:
           type: web
           name: operyx-api
-          property: url
+          property: host
 
 databases:
   # PostgreSQL Database
