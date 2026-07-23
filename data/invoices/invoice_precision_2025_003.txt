@@ -1,0 +1,24 @@
+INVOICE
+Invoice Number: PT-2025-1199
+Date: April 18, 2025
+Due Date: May 18, 2025
+
+Vendor: Precision Tools Inc
+890 Toolmaker Drive, Detroit, MI 48201
+
+Bill To:
+Operyx Manufacturing Inc.
+500 Supply Chain Way
+Chicago, IL 60601
+
+Line Items:
+1. Industrial Bearing A (SKU-001) - Qty: 250 @ $125.00 = $31,250.00
+2. Gear Box K (SKU-011) - Qty: 45 @ $890.00 = $40,050.00
+3. Drive Belt R (SKU-018) - Qty: 600 @ $18.50 = $11,100.00
+
+Subtotal: $82,400.00
+Tax (6%): $4,944.00
+TOTAL DUE: $87,344.00
+
+Payment Terms: Net 30
+PO Reference: PO-2025-0025

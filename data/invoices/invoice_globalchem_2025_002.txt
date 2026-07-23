@@ -1,0 +1,25 @@
+INVOICE
+Invoice Number: GC-INV-4421
+Date: April 2, 2025
+Due Date: May 2, 2025
+
+Vendor: GlobalChem Industries
+45 Chemical Park, Mumbai, India
+
+Bill To:
+Operyx Manufacturing Inc.
+500 Supply Chain Way
+Chicago, IL 60601
+
+Line Items:
+1. Lubricant Oil S (SKU-019) - Qty: 200 @ $85.00 = $17,000.00
+2. Rubber Gasket F (SKU-006) - Qty: 3000 @ $2.50 = $7,500.00
+3. Filter Element J (SKU-010) - Qty: 150 @ $42.00 = $6,300.00
+
+Subtotal: $30,800.00
+Tax (5%): $1,540.00
+TOTAL DUE: $32,340.00
+
+Payment Terms: Net 45
+PO Reference: PO-2025-0008
+Contract: Annual Supply Agreement #GC-2024-112

@@ -1,0 +1,10 @@
+apiVersion: v2
+name: operyx
+description: Operyx AI call-to-trade intent extraction platform
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+keywords:
+  - ai
+  - speech-to-text
+  - intent-extraction

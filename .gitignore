@@ -1,0 +1,67 @@
+# Dependencies & Build
+node_modules/
+dist/
+build/
+frontend/.next/
+frontend/out/
+.next/
+out/
+.turbo/
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/
+.eggs/
+*.so
+.pytest_cache/
+backend/.pytest_cache/
+.coverage
+htmlcov/
+.hypothesis/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Environment & Config
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Databases & Uploads
+*.db
+*.sqlite
+*.sqlite3
+operyx_dev.db
+backend/operyx_demo.db
+backend/uploads/
+data/uploads/
+eval/reports/output/
+
+# Logs & Temp Artifacts
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.docx
+*.xml
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

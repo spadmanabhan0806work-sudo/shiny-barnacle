@@ -1,0 +1,214 @@
+{
+  "batch_ids": [
+    "81b8be1a-c02d-4544-9c12-ab2997307c61",
+    "c924bfe6-8e2e-4060-90a0-d9393136258c",
+    "76089dd4-f7ad-477d-a398-d3e624b8b8bf",
+    "85dff294-8884-46fc-a7db-45cf9ecd56dd",
+    "7475d87a-28c7-4995-a2a6-e25b70035878",
+    "532eeb46-3ec1-4099-94e8-71888d15b30f",
+    "a43a7405-4a50-424f-9cbc-01bedc54df09",
+    "2c07c82b-0530-48e9-b9d8-f9815ff0d4ba",
+    "975af582-d362-4dfa-8f82-0b839e2091df",
+    "b04aa62a-8a4c-4d5f-b6fb-382fa9eb66b5",
+    "c93ced58-89d4-4c15-baa0-5bbe97e047f6",
+    "e0932cf4-e1dc-4d78-9f2c-3cd82b9b7587",
+    "ce719f69-bbc7-4718-b0e4-13fc31363fd4",
+    "9bf3e2a8-f644-4144-ac84-af8f0c8eeddc",
+    "94cce645-9536-4099-ae6e-997e65617a41",
+    "55b0b8cb-18cf-41ed-8e4b-2e51679f6c5f",
+    "3256f596-0b98-4243-94c2-e15cd64effe3",
+    "b6b108c9-7913-4983-9162-7ff0bd26b467",
+    "c8c167a7-77d2-47c8-b0d0-326b09cc5a08",
+    "408c7d0e-07d3-4c9c-8148-3be653ed32aa",
+    "488e0150-12b4-4e18-9f22-c414559e164e",
+    "a01f9430-f2f8-4c1c-88de-f86d8aca06b7",
+    "380e83b0-7f3f-4546-8a9a-917b06ed5bb4",
+    "0f562fe8-3711-4215-a071-68a7540c9953",
+    "59b62fd2-3697-4724-9ff1-fb8cd946f899",
+    "ac697ac8-22e4-4ea5-b8c5-f18521aafb04",
+    "a3704910-fe75-4cf8-a024-f61940384fb8",
+    "538d3d75-63c6-496a-85ba-d1b321cc6d8e",
+    "2c5a54dd-0c83-42c8-8bc7-0a0a2e47a7a3"
+  ],
+  "batches": [
+    {
+      "batch_id": "81b8be1a-c02d-4544-9c12-ab2997307c61",
+      "total": 1,
+      "errors": [],
+      "url_count": 1
+    },
+    {
+      "batch_id": "c924bfe6-8e2e-4060-90a0-d9393136258c",
+      "total": 10,
+      "errors": [],
+      "url_count": 10
+    },
+    {
+      "batch_id": "76089dd4-f7ad-477d-a398-d3e624b8b8bf",
+      "total": 10,
+      "errors": [],
+      "url_count": 10
+    },
+    {
+      "batch_id": "85dff294-8884-46fc-a7db-45cf9ecd56dd",
+      "total": 10,
+      "errors": [],
+      "url_count": 10
+    },
+    {
+      "batch_id": "7475d87a-28c7-4995-a2a6-e25b70035878",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "532eeb46-3ec1-4099-94e8-71888d15b30f",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "a43a7405-4a50-424f-9cbc-01bedc54df09",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "2c07c82b-0530-48e9-b9d8-f9815ff0d4ba",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "975af582-d362-4dfa-8f82-0b839e2091df",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "b04aa62a-8a4c-4d5f-b6fb-382fa9eb66b5",
+      "total": 20,
+      "errors": [],
+      "url_count": 20
+    },
+    {
+      "batch_id": "c93ced58-89d4-4c15-baa0-5bbe97e047f6",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "e0932cf4-e1dc-4d78-9f2c-3cd82b9b7587",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "ce719f69-bbc7-4718-b0e4-13fc31363fd4",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "9bf3e2a8-f644-4144-ac84-af8f0c8eeddc",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "94cce645-9536-4099-ae6e-997e65617a41",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "55b0b8cb-18cf-41ed-8e4b-2e51679f6c5f",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "3256f596-0b98-4243-94c2-e15cd64effe3",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "b6b108c9-7913-4983-9162-7ff0bd26b467",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "c8c167a7-77d2-47c8-b0d0-326b09cc5a08",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "408c7d0e-07d3-4c9c-8148-3be653ed32aa",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "488e0150-12b4-4e18-9f22-c414559e164e",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "a01f9430-f2f8-4c1c-88de-f86d8aca06b7",
+      "total": 5,
+      "errors": [],
+      "url_count": 5
+    },
+    {
+      "batch_id": "380e83b0-7f3f-4546-8a9a-917b06ed5bb4",
+      "total": 20,
+      "errors": [],
+      "url_count": 20
+    },
+    {
+      "batch_id": "0f562fe8-3711-4215-a071-68a7540c9953",
+      "total": 1,
+      "errors": [],
+      "url_count": 1
+    },
+    {
+      "batch_id": "59b62fd2-3697-4724-9ff1-fb8cd946f899",
+      "total": 1,
+      "errors": [],
+      "url_count": 1
+    },
+    {
+      "batch_id": "ac697ac8-22e4-4ea5-b8c5-f18521aafb04",
+      "total": 1,
+      "errors": [],
+      "url_count": 1
+    },
+    {
+      "batch_id": "a3704910-fe75-4cf8-a024-f61940384fb8",
+      "total": 1,
+      "errors": [],
+      "url_count": 1
+    },
+    {
+      "batch_id": "538d3d75-63c6-496a-85ba-d1b321cc6d8e",
+      "total": 1,
+      "errors": [],
+      "url_count": 1
+    },
+    {
+      "batch_id": "2c5a54dd-0c83-42c8-8bc7-0a0a2e47a7a3",
+      "total": 1,
+      "errors": [],
+      "url_count": 1
+    }
+  ],
+  "total_calls_ingested": 162,
+  "errors": [],
+  "source_file": "c:\\Users\\natar\\Downloads\\recording_urls.txt",
+  "url_count_submitted": 162,
+  "processed_calls": 162
+}

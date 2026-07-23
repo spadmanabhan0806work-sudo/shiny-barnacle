@@ -1,0 +1,9 @@
+active_version: v1.0.0
+module: call_to_trade
+versions:
+  v1.0.0:
+    weight: 0.6
+    is_active: true
+  v1.1.0:
+    weight: 0.5
+    is_active: false

@@ -1,0 +1,510 @@
+{
+  "batch_id": null,
+  "generated_at": "2026-07-02T04:44:04.592235+00:00",
+  "analysis_mode": "url_metadata_estimate",
+  "source_file": "C:\\Users\\natar\\Downloads\\recording_urls.txt",
+  "total_calls": 20,
+  "processed_calls": 20,
+  "distribution": {
+    "hi": 7,
+    "en": 4,
+    "ml": 5,
+    "gu": 1,
+    "mixed": 3,
+    "other": 0
+  },
+  "needs_review_count": 20,
+  "needs_review": [
+    {
+      "call_id": "75193f3c-2606-4984-9f34-888c3bf843b7",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "b9e893ed-d66b-4fe3-b640-df7b39f35e5a",
+      "detected_language": "mixed",
+      "transcript_language": "unknown",
+      "bucket": "mixed",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "4573eaf0-2b28-4617-b17e-979289836926",
+      "detected_language": "mixed",
+      "transcript_language": "unknown",
+      "bucket": "mixed",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "1a8cbc2a-30f8-4dff-9760-15332a2a093d",
+      "detected_language": "mixed",
+      "transcript_language": "unknown",
+      "bucket": "mixed",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "15b48035-7ec5-410c-8076-f56defdaa9b9",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "29581a09-a82d-4799-999d-162528e8ce82",
+      "detected_language": "en",
+      "transcript_language": "unknown",
+      "bucket": "en",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "dca7b8e7-e7f9-4e68-bdc7-10a03129732e",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "39d5c55e-b73d-464e-b295-94d963fa843e",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "0a38f151-d3a3-413c-893b-c366e9fd72cf",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "093b99ad-257d-4ee8-8f83-7cd38c9cd97c",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "f9c8ae86-29ee-43c1-abb0-353ee1a9b496",
+      "detected_language": "en",
+      "transcript_language": "unknown",
+      "bucket": "en",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "a0fcb8ed-c864-426f-a4f4-ac9901c49d46",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "87632c2e-c9ec-46b0-852b-83d311082e67",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "62aa3e57-93f0-417d-8e93-9f577216a7e4",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "97cea370-a8e1-4b4f-8c3c-7289864b3528",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "e7cae6dd-9277-4d88-8cc0-a72a7b9cbe3b",
+      "detected_language": "gu",
+      "transcript_language": "unknown",
+      "bucket": "gu",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "8f7b2b5d-b1a7-467b-883e-7ffc3b50306c",
+      "detected_language": "en",
+      "transcript_language": "unknown",
+      "bucket": "en",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "2b27ab7b-95dc-4d3b-81f5-ceae3715cafa",
+      "detected_language": "en",
+      "transcript_language": "unknown",
+      "bucket": "en",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "ea2713b5-9c57-4d35-9579-65feb5e0a349",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    },
+    {
+      "call_id": "da431d72-5cff-406b-abd5-277d83eb9090",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ]
+    }
+  ],
+  "calls": [
+    {
+      "call_id": "75193f3c-2606-4984-9f34-888c3bf843b7",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=75193f3c-2606-4984-9f34-888c3bf843b7",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "75193f3c-2606-4984-9f34-888c3bf843b7.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "b9e893ed-d66b-4fe3-b640-df7b39f35e5a",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=b9e893ed-d66b-4fe3-b640-df7b39f35e5a",
+      "detected_language": "mixed",
+      "transcript_language": "unknown",
+      "bucket": "mixed",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "b9e893ed-d66b-4fe3-b640-df7b39f35e5a.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "4573eaf0-2b28-4617-b17e-979289836926",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=4573eaf0-2b28-4617-b17e-979289836926",
+      "detected_language": "mixed",
+      "transcript_language": "unknown",
+      "bucket": "mixed",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "4573eaf0-2b28-4617-b17e-979289836926.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "1a8cbc2a-30f8-4dff-9760-15332a2a093d",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=1a8cbc2a-30f8-4dff-9760-15332a2a093d",
+      "detected_language": "mixed",
+      "transcript_language": "unknown",
+      "bucket": "mixed",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "1a8cbc2a-30f8-4dff-9760-15332a2a093d.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "15b48035-7ec5-410c-8076-f56defdaa9b9",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=15b48035-7ec5-410c-8076-f56defdaa9b9",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "15b48035-7ec5-410c-8076-f56defdaa9b9.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "29581a09-a82d-4799-999d-162528e8ce82",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=29581a09-a82d-4799-999d-162528e8ce82",
+      "detected_language": "en",
+      "transcript_language": "unknown",
+      "bucket": "en",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "29581a09-a82d-4799-999d-162528e8ce82.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "dca7b8e7-e7f9-4e68-bdc7-10a03129732e",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=dca7b8e7-e7f9-4e68-bdc7-10a03129732e",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "dca7b8e7-e7f9-4e68-bdc7-10a03129732e.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "39d5c55e-b73d-464e-b295-94d963fa843e",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=39d5c55e-b73d-464e-b295-94d963fa843e",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "39d5c55e-b73d-464e-b295-94d963fa843e.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "0a38f151-d3a3-413c-893b-c366e9fd72cf",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=0a38f151-d3a3-413c-893b-c366e9fd72cf",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "0a38f151-d3a3-413c-893b-c366e9fd72cf.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "093b99ad-257d-4ee8-8f83-7cd38c9cd97c",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=093b99ad-257d-4ee8-8f83-7cd38c9cd97c",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "093b99ad-257d-4ee8-8f83-7cd38c9cd97c.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "f9c8ae86-29ee-43c1-abb0-353ee1a9b496",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=f9c8ae86-29ee-43c1-abb0-353ee1a9b496",
+      "detected_language": "en",
+      "transcript_language": "unknown",
+      "bucket": "en",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "f9c8ae86-29ee-43c1-abb0-353ee1a9b496.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "a0fcb8ed-c864-426f-a4f4-ac9901c49d46",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=a0fcb8ed-c864-426f-a4f4-ac9901c49d46",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "a0fcb8ed-c864-426f-a4f4-ac9901c49d46.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "87632c2e-c9ec-46b0-852b-83d311082e67",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=87632c2e-c9ec-46b0-852b-83d311082e67",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "87632c2e-c9ec-46b0-852b-83d311082e67.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "62aa3e57-93f0-417d-8e93-9f577216a7e4",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=62aa3e57-93f0-417d-8e93-9f577216a7e4",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "62aa3e57-93f0-417d-8e93-9f577216a7e4.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "97cea370-a8e1-4b4f-8c3c-7289864b3528",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=97cea370-a8e1-4b4f-8c3c-7289864b3528",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "97cea370-a8e1-4b4f-8c3c-7289864b3528.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "e7cae6dd-9277-4d88-8cc0-a72a7b9cbe3b",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=e7cae6dd-9277-4d88-8cc0-a72a7b9cbe3b",
+      "detected_language": "gu",
+      "transcript_language": "unknown",
+      "bucket": "gu",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "e7cae6dd-9277-4d88-8cc0-a72a7b9cbe3b.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "8f7b2b5d-b1a7-467b-883e-7ffc3b50306c",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=8f7b2b5d-b1a7-467b-883e-7ffc3b50306c",
+      "detected_language": "en",
+      "transcript_language": "unknown",
+      "bucket": "en",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "8f7b2b5d-b1a7-467b-883e-7ffc3b50306c.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "2b27ab7b-95dc-4d3b-81f5-ceae3715cafa",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=2b27ab7b-95dc-4d3b-81f5-ceae3715cafa",
+      "detected_language": "en",
+      "transcript_language": "unknown",
+      "bucket": "en",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "2b27ab7b-95dc-4d3b-81f5-ceae3715cafa.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "ea2713b5-9c57-4d35-9579-65feb5e0a349",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=ea2713b5-9c57-4d35-9579-65feb5e0a349",
+      "detected_language": "ml",
+      "transcript_language": "unknown",
+      "bucket": "ml",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "ea2713b5-9c57-4d35-9579-65feb5e0a349.wav",
+      "provider": "knowlarity"
+    },
+    {
+      "call_id": "da431d72-5cff-406b-abd5-277d83eb9090",
+      "source_url": "https://sr.knowlarity.com/vr/fetchsound/?callid=da431d72-5cff-406b-abd5-277d83eb9090",
+      "detected_language": "hi",
+      "transcript_language": "unknown",
+      "bucket": "hi",
+      "avg_segment_confidence": null,
+      "needs_review": true,
+      "review_reasons": [
+        "pre_ingest_estimate"
+      ],
+      "inferred_filename": "da431d72-5cff-406b-abd5-277d83eb9090.wav",
+      "provider": "knowlarity"
+    }
+  ],
+  "url_stats": {
+    "unique_hosts": [
+      "sr.knowlarity.com"
+    ],
+    "providers": [
+      "knowlarity"
+    ],
+    "inferred_extension": "wav"
+  }
+}

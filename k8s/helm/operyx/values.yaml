@@ -1,0 +1,149 @@
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  api:
+    repository: operyx-ai-api
+    tag: latest
+    pullPolicy: IfNotPresent
+  worker:
+    repository: operyx-ai-worker
+    tag: latest
+    pullPolicy: IfNotPresent
+  dashboard:
+    repository: operyx-ai-dashboard
+    tag: latest
+    pullPolicy: IfNotPresent
+
+replicaCount:
+  api: 2
+  worker: 2
+  dashboard: 1
+
+service:
+  api:
+    type: ClusterIP
+    port: 8000
+  dashboard:
+    type: ClusterIP
+    port: 3000
+  postgres:
+    port: 5432
+  redis:
+    port: 6379
+
+ingress:
+  enabled: false
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - host: operyx.example.com
+      paths:
+        - path: /api
+          pathType: Prefix
+          service: api
+        - path: /
+          pathType: Prefix
+          service: dashboard
+  tls:
+    - secretName: operyx-tls
+      hosts:
+        - operyx.example.com
+
+postgres:
+  enabled: true
+  image: postgres:16
+  auth:
+    username: operyx
+    password: operyx
+    database: operyx
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: ""
+
+redis:
+  enabled: true
+  image: redis:7
+
+worker:
+  gpu:
+    enabled: false
+    nodeSelector: {}
+    tolerations: []
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+    limits:
+      cpu: 2000m
+      memory: 4Gi
+
+api:
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+
+dashboard:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+hpa:
+  enabled: true
+  worker:
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 70
+
+config:
+  tenantId: default
+  sttProvider: mock
+  llmProvider: mock
+  confidenceThreshold: 0.85
+  authEnabled: false
+
+secrets:
+  databaseUrl: postgresql+asyncpg://operyx:operyx@operyx-postgres:5432/operyx
+  databaseUrlSync: postgresql://operyx:operyx@operyx-postgres:5432/operyx
+  redisUrl: redis://operyx-redis:6379/0
+
+probes:
+  liveness:
+    initialDelaySeconds: 15
+    periodSeconds: 20
+  readiness:
+    initialDelaySeconds: 10
+    periodSeconds: 10
+
+serviceAccount:
+  create: true
+  name: ""
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: false
+  capabilities:
+    drop:
+      - ALL

@@ -1,0 +1,9 @@
+# Base K8s manifests — use Helm chart for full deployment.
+# These files document the core workload topology for staging overlays.
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: operyx
+  labels:
+    app.kubernetes.io/name: operyx

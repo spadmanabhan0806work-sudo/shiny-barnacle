@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "operyx.fullname" . }}-worker
+  labels:
+    {{- include "operyx.labels" . | nindent 4 }}
+    app.kubernetes.io/component: worker
+spec:
+  replicas: {{ .Values.worker.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "operyx.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: worker
+  template:
+    metadata:
+      labels:
+        {{- include "operyx.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: worker
+    spec:
+      {{- if .Values.worker.gpu.enabled }}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: {{ .Values.worker.gpu.nodeSelector.accelerator | quote }}
+                    operator: Exists
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+      {{- end }}
+      containers:
+        - name: worker
+          image: "{{ .Values.global.imageRegistry }}{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag }}"
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          env:
+            - name: DATABASE_URL
+              value: postgresql+asyncpg://{{ .Values.postgres.auth.username }}:{{ .Values.postgres.auth.password }}@{{ include "operyx.fullname" . }}-postgres:5432/{{ .Values.postgres.auth.database }}
+            - name: REDIS_URL
+              value: redis://{{ include "operyx.fullname" . }}-redis:6379/0
+          resources:
+            {{- toYaml .Values.worker.resources | nindent 12 }}

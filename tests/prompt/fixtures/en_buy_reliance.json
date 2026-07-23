@@ -1,0 +1,9 @@
+{
+  "transcript": "I want to buy one hundred shares of Reliance at twenty five hundred rupees on NSE.",
+  "expected": {
+    "side": "BUY",
+    "stock_symbol": "Reliance",
+    "quantity": 100,
+    "exchange": "NSE"
+  }
+}

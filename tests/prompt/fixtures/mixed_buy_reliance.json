@@ -1,0 +1,9 @@
+{
+  "transcript": "Mujhe NSE par Reliance ke sau shares buy karne hain at 2500.",
+  "expected": {
+    "side": "BUY",
+    "stock_symbol": "Reliance",
+    "quantity": 100,
+    "exchange": "NSE"
+  }
+}

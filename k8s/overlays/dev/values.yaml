@@ -1,0 +1,18 @@
+# Dev overlay — lower replicas, no ingress TLS
+replicaCount:
+  api: 1
+  worker: 1
+
+postgres:
+  persistence:
+    enabled: false
+
+ingress:
+  enabled: false
+
+hpa:
+  enabled: false
+
+config:
+  sttProvider: mock
+  llmProvider: mock

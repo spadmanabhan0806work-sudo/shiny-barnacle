@@ -1,0 +1,77 @@
+app:
+  name: operyx-ai
+  tenant_id: default
+  log_level: INFO
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "http://localhost:3000"
+
+database:
+  url: "postgresql+asyncpg://operyx:operyx@postgres:5432/operyx"
+  url_sync: "postgresql://operyx:operyx@postgres:5432/operyx"
+  pool_size: 5
+
+storage:
+  backend: local
+  local:
+    base_path: ./data/uploads
+
+providers:
+  stt:
+    default: mock
+    whisperx:
+      enabled: false
+      model: large-v3
+      device: cpu
+      compute_type: int8
+      batch_size: 8
+    google:
+      language_codes: ["en-IN", "hi-IN", "ml-IN"]
+      model: latest_long
+    mock:
+      default_language: en
+      model: mock-v1
+  llm:
+    default: gemini
+    gemini:
+      model: gemini-2.5-flash
+    mock:
+      model: mock-llm-v1
+    ollama:
+      base_url: http://host.docker.internal:11434
+      model: qwen2.5:7b
+    openai:
+      model: gpt-4o-mini
+
+processing:
+  confidence_threshold: 0.85
+  supported_audio_formats:
+    - wav
+    - mp3
+    - m4a
+  url_download:
+    timeout_sec: 60
+    max_retries: 3
+    retry_backoff_sec: 2.0
+    max_concurrent: 5
+    min_interval_sec: 0.2
+  audio:
+    sample_rate: 16000
+    channels: 1
+    ffmpeg_path: C:/Users/natar/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.2-full_build/bin/ffmpeg.exe
+    ffprobe_path: C:/Users/natar/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.2-full_build/bin/ffprobe.exe
+
+stock_symbols:
+  csv_path: ./data/stock_symbols/nse_symbols.csv
+
+prompts:
+  manifest_path: ./prompts/manifest.yaml
+  base_path: ./prompts
+
+auth:
+  enabled: false
+  # OIDC stub: base64-encoded JSON bearer tokens with sub + roles
+  # Example roles: annotator, reviewer, admin

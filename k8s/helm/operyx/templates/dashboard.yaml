@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "operyx.fullname" . }}-dashboard
+  labels:
+    {{- include "operyx.labels" . | nindent 4 }}
+    app.kubernetes.io/component: dashboard
+spec:
+  replicas: {{ .Values.replicaCount.dashboard }}
+  selector:
+    matchLabels:
+      {{- include "operyx.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: dashboard
+  template:
+    metadata:
+      labels:
+        {{- include "operyx.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: dashboard
+    spec:
+      serviceAccountName: {{ include "operyx.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: dashboard
+          image: "{{ .Values.image.dashboard.repository }}:{{ .Values.image.dashboard.tag }}"
+          imagePullPolicy: {{ .Values.image.dashboard.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          ports:
+            - containerPort: 3000
+              name: http
+          env:
+            - name: NEXT_PUBLIC_API_URL
+              value: "http://{{ include "operyx.fullname" . }}-api:{{ .Values.service.api.port }}"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 20
+          resources:
+            {{- toYaml .Values.dashboard.resources | nindent 12 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "operyx.fullname" . }}-dashboard
+  labels:
+    {{- include "operyx.labels" . | nindent 4 }}
+    app.kubernetes.io/component: dashboard
+spec:
+  type: {{ .Values.service.dashboard.type }}
+  ports:
+    - port: {{ .Values.service.dashboard.port }}
+      targetPort: http
+      name: http
+  selector:
+    {{- include "operyx.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/component: dashboard

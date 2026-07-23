@@ -1,0 +1,26 @@
+INVOICE
+Invoice Number: INV-2025-0847
+Date: March 15, 2025
+Due Date: April 14, 2025
+
+Vendor: Pacific Metals Corp
+123 Industrial Blvd, Shanghai, China
+Tax ID: CN-8847291
+
+Bill To:
+Operyx Manufacturing Inc.
+500 Supply Chain Way
+Chicago, IL 60601
+
+Line Items:
+1. Steel Plate C (SKU-003) - Qty: 500 @ $45.00 = $22,500.00
+2. Copper Wire D (SKU-004) - Qty: 1200 @ $12.50 = $15,000.00
+3. Aluminum Sheet E (SKU-005) - Qty: 800 @ $28.00 = $22,400.00
+
+Subtotal: $59,900.00
+Tax (8%): $4,792.00
+Shipping: $1,250.00
+TOTAL DUE: $65,942.00
+
+Payment Terms: Net 30
+PO Reference: PO-2025-0012

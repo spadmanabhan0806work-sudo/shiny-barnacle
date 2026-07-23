@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "operyx.fullname" . }}-worker
+  labels:
+    {{- include "operyx.labels" . | nindent 4 }}
+    app.kubernetes.io/component: worker
+spec:
+  replicas: {{ .Values.replicaCount.worker }}
+  selector:
+    matchLabels:
+      {{- include "operyx.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: worker
+  template:
+    metadata:
+      labels:
+        {{- include "operyx.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: worker
+    spec:
+      serviceAccountName: {{ include "operyx.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.worker.gpu.enabled }}
+      nodeSelector:
+        {{- toYaml .Values.worker.gpu.nodeSelector | nindent 8 }}
+      tolerations:
+        {{- toYaml .Values.worker.gpu.tolerations | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: worker
+          image: "{{ .Values.image.worker.repository }}:{{ .Values.image.worker.tag }}"
+          imagePullPolicy: {{ .Values.image.worker.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "operyx.fullname" . }}-config
+            - secretRef:
+                name: {{ include "operyx.fullname" . }}-secrets
+          resources:
+            {{- if .Values.worker.gpu.enabled }}
+            {{- toYaml .Values.worker.gpu.resources | nindent 12 }}
+            {{- else }}
+            {{- toYaml .Values.worker.resources | nindent 12 }}
+            {{- end }}
+          volumeMounts:
+            - name: uploads
+              mountPath: /app/data/uploads
+      volumes:
+        - name: uploads
+          emptyDir: {}

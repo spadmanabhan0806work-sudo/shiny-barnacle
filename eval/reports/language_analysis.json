@@ -1,0 +1,1476 @@
+{
+  "batch_id": null,
+  "generated_at": "2026-07-02T04:46:56.998923+00:00",
+  "total_calls": 162,
+  "processed_calls": 162,
+  "distribution": {
+    "hi": 0,
+    "en": 162,
+    "ml": 0,
+    "gu": 0,
+    "mixed": 0,
+    "other": 0
+  },
+  "needs_review_count": 0,
+  "needs_review": [],
+  "calls": [
+    {
+      "call_id": "b165f040-6569-4b79-a37e-4542cb386b3b",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "0534ebc3-c60c-4cc7-8177-481d9ad488dc",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "59ed9682-84eb-432f-8ceb-81ed045c1c30",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "fe4de124-d617-44cb-8e6b-7f9cbc68d589",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "39c16a68-d9df-4eaf-9d38-22983cca8e1f",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "a9956586-0474-4d53-80b6-44d9204ccdad",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "512c03ac-ae4a-4c5b-bd66-9927f59c20ee",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "6b386f5c-4cba-4729-9a7f-430244059ea1",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "e2e7dee1-56eb-4159-9b7c-557a03cab881",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "d93db110-6967-4bba-a234-64ea4b8fd058",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "25c29f7e-b541-44bd-b855-a698d4a9820c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ddddfc8c-2f29-44c1-a823-a530faea11c1",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "c99c534b-429b-4224-851e-e6900394bd4b",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "e391339a-d17d-4496-9ce3-9b6880723a74",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "210ce6cb-bac4-4668-a94a-74293a0dcfc5",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "2ac4a824-629e-4acc-b86a-a00cb10c292c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "79f7b1ae-72e5-4bef-b6a6-e87e779f1ce6",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "547926d9-3e6f-4b54-89e6-e7154282555c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "5dfcb4f1-dc24-4b3a-8f43-908c1d5a8523",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "4047c81c-4a67-4c55-86dd-ce35e230332a",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "b2d694f4-0597-44ee-a08a-188bf1910004",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "d07b1097-1bc4-426c-ae85-0f90bc4e18bf",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "89b0d4f7-2daa-4c54-84ef-bfb9db303d54",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "53cc6272-b1dd-4755-914c-82d53ab84de4",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "00abfc1b-e018-4b79-8b77-ea28df59b9e1",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "7c1fd186-b64a-4d5d-9a5a-4ecfe1e6eb06",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "182fc865-72f8-4a3e-8f16-76bcf9c743ad",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "75269ac8-c440-49a9-96d0-a851bcc08e19",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "8a484f84-cff5-48b7-8b3d-9512eec1d0a0",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "422c04b3-f102-4252-8e00-d6a8d5004a33",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "236bdea3-660f-422a-8b20-7567711c4b68",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "b9a7ff62-2483-4b71-8caa-7882865d6f5f",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "b2524385-5463-4e07-ad47-fe41ef9f8e8c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ccd4b7c3-f63d-4cc5-b08f-d2cc341a2267",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "d1162d72-9fda-4b8a-b862-bd2389916618",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "d7d09d97-e682-4251-8e0b-cc29018064bc",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "b4586c97-d4ba-4b06-98e3-b85281bce969",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ae7cd479-eac9-4f16-b150-31c04f00bccd",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "e6c34e26-78dd-4c89-83c7-fde0aeb5dd20",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "7607fe3f-e03a-4c33-bc56-9cf22634eba7",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "8e3b8aff-2b9c-4687-95a7-667583a14e5c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ce153a13-ad9d-4076-be6d-2170cb97545f",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "4421df07-c77e-4928-aa11-fd352db54e47",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "95e40364-0c30-4087-ae1e-3a5e2ab9f30c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "b58acf6e-059d-4b84-99b1-614cd965897e",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "e45beeac-0f7c-4a36-b1bc-79d3513e5841",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "3f9f8289-8c99-42f4-899b-397e5b52666a",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "7de2c8bc-d5c6-43e9-bb4b-e00ff6d45e25",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "be885c23-1d93-4d73-98e9-c487447d9a73",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "79ee47d6-00a2-4111-9a09-c753b7d8d7c9",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "c2864906-c20f-4aed-81de-ae9f9f80d7cb",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "9f4944cc-2291-4bec-93a4-f8228766f5bd",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "229dde03-f3cd-4cab-91de-ef8c2336ea04",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "2bf57d2e-1453-4ba3-a885-984f41367730",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "dfe876f4-1a78-487a-a9ee-d73f0b366f7b",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "b98aa484-eda9-4224-ba7e-bda613a77413",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "07a91cb0-ac6a-4a99-87c6-93390e408d50",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "9227ffea-7753-454f-8292-95a81077db61",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "f55a7a5a-b3ff-4309-83c5-cd508ef5c58c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "85a203e3-cd02-4607-819a-35d6a6d42aec",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "a3f12d99-541e-4291-992e-57dbd1b80f09",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "89d5dc24-e5b7-42e1-9252-92b1f8e9e6dd",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "d23c3745-d373-45e2-84ab-288cac14411a",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "83c0cc96-850f-4760-9140-277e88500741",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "07c454f4-805f-4700-82d3-901f2ddfd2a4",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "f4307b38-6257-431a-9b64-feb91f8ded38",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "2cc5b67a-6854-450c-a868-b1d9abda4b5c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "1da68d8a-9335-4d18-8653-a9d50cfc0c77",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "1beb9f93-cf30-4434-aaf7-c199a755b768",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "a2da2d7a-4d97-4a36-9380-99e4aa0709e6",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ded2fc4d-6a5c-4ebf-a67a-2fbd4e68ef37",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "29e56cfd-2d6f-451a-9c5c-4b22410b2e7e",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "79a5f1d6-65f3-4835-8bb7-e8183e1f09a5",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "35e00039-071c-4274-8536-ae5c76d9c94b",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "6aa2accc-40ee-4ef2-a90f-3351c77bd89e",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "40ab6c25-d5da-416c-a768-8e3782b6c8d1",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "acb97520-1b78-4aa2-8f87-50ee108ef5c8",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "2e12af91-5b8a-435d-90f1-5d5b456d0c69",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "a156f1ea-91db-42fb-b7ee-e0e7581d235a",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "6aad629e-7225-420f-af66-0aef47c490a6",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "0c2aba5b-fee9-41cd-ab1b-784868fdafe5",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "004f7399-ab07-412c-be3b-a98acc303cd0",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "1c8561bd-9e24-4647-b7de-fd9daa01b43e",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "e911cc54-070f-43cd-8d7b-552e9493ef55",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "685b6fcf-64ba-47c5-a5ee-2d32cbf93a70",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ff43fcde-4bd5-43e9-99a1-ccdfa2c3ebcb",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "aca4a4d2-ed08-43b3-8ca2-bf16529fbd63",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "5c6eafa3-7157-45b5-b339-62094225b55f",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "458834e4-22ea-4961-872b-8af335125478",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "998e4e9d-79d7-4f30-a03d-3407fcf86234",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "dc649046-cb67-4a38-882f-dea9853f44a8",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "65c5a76a-1330-402d-b312-de527cfdd0b3",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "10b75e90-c2df-4fa2-a300-eedef74151a1",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "e9d86471-3332-4f7d-ad60-cce54e5c1137",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "3eb6aa49-1c4b-46c5-98ac-ac05f3aca738",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "e2848763-b888-4217-b322-0fca523a6df1",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "38a4c503-1b2c-4a61-b9b7-f261c8e96219",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "fca6df55-0348-4605-a965-b919e80b3eae",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "89f27f6d-e15c-4e79-9c87-dbbaa3f0dc08",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "3efd34b7-33d9-4664-a453-f9d5ba37ca38",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "8b3c798a-8c3c-444c-82e9-e792e429f050",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "b177a475-6833-43c6-adf9-44009082e379",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "2c7a9293-50c0-4691-b6a6-6751162cf410",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "87dddcb5-f51f-4ecf-b624-d02b5a909b54",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "96494703-06ee-4560-9994-75c81ea29e31",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "891bd728-2fe1-4e01-8550-4c6fb7820582",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "c0a6dfb4-6f45-427c-8334-f9245762a190",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "03637f20-17b0-49ae-bc48-6143b4d82acf",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "b871dbff-0d13-47fa-af34-beae64bc3725",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "417a5f44-af9e-4784-adb0-8a11780a32a7",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "33b502cb-e3fe-4d6a-a81e-a98d00e3d460",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "45648ab7-0601-4cc4-988d-6030b8ac9780",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "5a96aa70-826d-42e0-b182-839e867b3d21",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "167e34a5-0fcf-4a4e-888b-a19e90ae3a9d",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "2c226451-ab60-4a6f-add1-5fd39a474dba",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "16449dd3-c439-4e53-8d51-6d6ee3a136e1",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "6d1b384a-443f-460e-a8ac-0897312cf002",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "716456e8-86ed-4a0d-9742-ff33d5c0bb00",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "03af1b70-a6ea-4390-b80b-9733de60611d",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ab5e884c-325f-4f78-a89a-b252eab1e85d",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "7aa59750-2fd5-462b-9ab0-a9e649c26a4f",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "db83a49a-4e76-42ba-a997-d089891f1457",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "a8b1cc32-eb78-4732-ba72-16d8da391c9c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "40675005-164c-481c-bc1e-23b45296d845",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "fb33f211-08c9-43a4-a31a-9753ec0b9c51",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ae75b7f1-68ae-44b0-a7ab-2a66b7136943",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "2a62c05d-a367-461f-b2af-3dcc16c1ed6b",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "dc5a4796-b0bd-481a-a7e6-e06e41c278c0",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "9e8205ce-e609-481a-8192-9c9bae5b61a0",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "fa84f95e-7545-428a-8eaf-d2584567dd88",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "518a852f-c3c4-4988-84a1-a06942c28e2d",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "0a60cd10-0bcb-464d-afdc-c261c90053fd",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "dc76ea45-9bc3-4a92-9c85-a10eaacb1d93",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "34a8d76f-d971-4f5a-b1ee-effcb0aa4dac",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "8d7f2830-ca9b-4599-b929-36c3dec08f66",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "f1848295-6e07-4536-bd07-834d7e56c4d3",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "50f7b547-e8c7-49d4-a67b-ecda3f0519d2",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "44c27a10-eaa5-4d80-b43b-2945d113559d",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "3f408cc2-735b-4d51-894e-173aed3b3f33",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "9d3c463d-830e-4d5a-a05f-6c167b1c8977",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "8e507d82-c9dc-4a04-b3f1-1928868bf5bf",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "66a9ebd7-a55b-410e-9e7d-cd684ae0feed",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "30f4b754-2e11-419d-8fb2-8b658a2c1710",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "c835cabe-9dc4-409f-865a-863424956006",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ceb2b90a-4487-46c6-9e04-7833069e9f87",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ea2a7300-b97d-445c-b710-08c64ddef9b8",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "f0fb2426-9870-4509-b565-260589227197",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "3754a5a7-d269-4cbd-a04c-d16db43d3062",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "88c7ed8c-da2f-4d28-a189-a6d5dc95358f",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "43ce2ebc-27c6-49c8-a27c-cd86b2f3c792",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "ee329534-2686-4651-8ee8-22435682c00d",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "70980802-05de-4ba6-a4e9-c8b005b348a6",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "92243a86-65cd-497d-acdf-f0a284943f58",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "8b0995d7-a321-4f49-b6b5-3290383cf302",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "f8d40365-c086-427f-abf3-bff1e0fd8f6d",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "2a99824a-4f75-4c0b-ae78-c6b7fc257cd1",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "e18393c3-a080-44d8-9d9c-2a8f49d6cac2",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "3444eaf9-771f-4b7e-a187-9c44f831e153",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "1d6708c8-c001-4dbf-8082-88a443aac607",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "cdb650cc-269d-4797-ba94-15a96ec7a16c",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "f7ac75cc-636e-45b7-8b5e-3117e4bb3c99",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    },
+    {
+      "call_id": "8d64c100-1a5d-4b9b-a86a-da56d865c9db",
+      "detected_language": "en",
+      "transcript_language": "mixed",
+      "bucket": "en",
+      "avg_segment_confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": []
+    }
+  ]
+}

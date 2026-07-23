@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": ["side", "stock_symbol", "quantity", "price", "exchange", "confidence"],
+  "properties": {
+    "side": { "type": "string", "enum": ["BUY", "SELL"] },
+    "stock_symbol": { "type": "string" },
+    "quantity": { "type": "integer", "minimum": 1 },
+    "price": { "type": "number", "minimum": 0 },
+    "exchange": { "type": "string", "enum": ["NSE", "BSE"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+  }
+}

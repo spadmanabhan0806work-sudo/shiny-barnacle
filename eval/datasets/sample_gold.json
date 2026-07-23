@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "name": "sample_dev_gold",
+  "description": "Sample gold annotations for local benchmark runs",
+  "entries": [
+    {
+      "call_id": "00000000-0000-4000-8000-000000000001",
+      "ground_truth": {
+        "side": "BUY",
+        "stock_symbol": "RELIANCE",
+        "quantity": 100,
+        "price": 2500.0,
+        "exchange": "NSE"
+      },
+      "prediction": {
+        "side": "BUY",
+        "stock_symbol": "RELIANCE",
+        "quantity": 100,
+        "price": 2500.0,
+        "exchange": "NSE"
+      }
+    },
+    {
+      "call_id": "00000000-0000-4000-8000-000000000002",
+      "ground_truth": {
+        "side": "SELL",
+        "stock_symbol": "TCS",
+        "quantity": 50,
+        "price": 3800.0,
+        "exchange": "NSE"
+      },
+      "prediction": {
+        "side": "SELL",
+        "stock_symbol": "TCS",
+        "quantity": 50,
+        "price": 3800.0,
+        "exchange": "NSE"
+      }
+    },
+    {
+      "call_id": "00000000-0000-4000-8000-000000000003",
+      "ground_truth": {
+        "side": "BUY",
+        "stock_symbol": "INFY",
+        "quantity": 200,
+        "price": 1500.0,
+        "exchange": "NSE"
+      },
+      "prediction": {
+        "side": "BUY",
+        "stock_symbol": "INFOSYS",
+        "quantity": 200,
+        "price": 1500.0,
+        "exchange": "NSE"
+      }
+    },
+    {
+      "call_id": "00000000-0000-4000-8000-000000000004",
+      "ground_truth": {
+        "side": "BUY",
+        "stock_symbol": "HDFCBANK",
+        "quantity": 75,
+        "price": 1650.5,
+        "exchange": "NSE"
+      },
+      "prediction": {
+        "side": "SELL",
+        "stock_symbol": "HDFCBANK",
+        "quantity": 75,
+        "price": 1650.5,
+        "exchange": "BSE"
+      }
+    }
+  ]
+}

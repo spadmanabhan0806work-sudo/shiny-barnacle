@@ -1,0 +1,22 @@
+replicaCount:
+  api: 2
+  worker: 3
+
+ingress:
+  enabled: true
+
+worker:
+  gpu:
+    enabled: true
+    nodeSelector:
+      accelerator: nvidia-gpu
+    tolerations:
+      - key: nvidia.com/gpu
+        operator: Exists
+        effect: NoSchedule
+
+hpa:
+  enabled: true
+
+config:
+  authEnabled: true

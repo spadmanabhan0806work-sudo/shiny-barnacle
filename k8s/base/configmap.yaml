@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: operyx-config
+  namespace: operyx
+data:
+  LOG_LEVEL: INFO
+  STT_PROVIDER: mock
+  LLM_PROVIDER: mock
+  AUTH_ENABLED: "false"
