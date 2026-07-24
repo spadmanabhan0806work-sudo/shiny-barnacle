@@ -257,12 +257,13 @@ class AIService:
         delayed = db.query(Shipment).filter(Shipment.status == "delayed").count()
         high_risk = db.query(Supplier).filter(Supplier.risk_level == "high").count()
         return (
-            f"Supply chain overview for your prompt: '{prompt[:60]}...'\n\n"
+            f"Supply chain overview for your prompt: '{prompt_lower[:60]}...'\n\n"
             f"• Active Purchase Orders: {total_orders}\n"
             f"• Total Suppliers: {total_suppliers} ({high_risk} high-risk)\n"
             f"• Delayed Shipments: {delayed}\n\n"
             f"Try asking specifically about 'delayed shipments', 'high risk suppliers', 'low inventory', or 'purchase orders'."
         )
+
 
     def _mock_executive_summary(self, db: Session | None) -> str:
         if not db:
