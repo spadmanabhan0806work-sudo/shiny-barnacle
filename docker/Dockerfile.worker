@@ -1,0 +1,25 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV PYTHONPATH="/app:/app/backend"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq-dev gcc ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY pyproject.toml README.md ./
+COPY src ./src
+COPY backend ./backend
+COPY config ./config
+COPY prompts ./prompts
+COPY alembic ./alembic
+COPY alembic.ini ./
+COPY eval ./eval
+COPY data ./data
+
+RUN pip install --no-cache-dir -e ".[dev]"
+
+RUN mkdir -p /app/data/uploads
+
+CMD ["python", "-c", "import time; print('Worker started successfully'); time.sleep(3600)"]
