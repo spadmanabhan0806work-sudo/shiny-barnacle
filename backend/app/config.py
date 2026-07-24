@@ -15,7 +15,9 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     google_api_key: str = ""
     database_url: str = "sqlite:///./operyx_demo.db"
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = "*"
+
+
     db_pool_size: int = 20
     db_max_overflow: int = 20
     db_pool_timeout: int = 30

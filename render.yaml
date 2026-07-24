@@ -28,6 +28,10 @@ services:
         value: local
       - key: STORAGE_LOCAL_PATH
         value: /app/data/uploads
+      - key: CORS_ORIGINS
+        value: "*"
+
+
 
   # Frontend Dashboard Service (Next.js)
   - type: web
