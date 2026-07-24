@@ -44,9 +44,9 @@ export default function DocumentsPage() {
   return (
     <PageShell title="Document AI" description="Upload invoices, POs, and contracts for AI-powered extraction">
       <div className="space-y-6">
-        <div className="flex flex-wrap gap-4">
-          <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-border px-6 py-8 hover:bg-muted/30 transition-colors flex-1 min-w-[200px]">
-            <Upload className="h-6 w-6 text-primary" />
+        <div className="flex flex-col sm:flex-row gap-4">
+          <label className="flex cursor-pointer items-center justify-center gap-3 rounded-lg border border-dashed border-border p-4 sm:px-6 sm:py-8 hover:bg-muted/30 transition-colors flex-1 w-full">
+            <Upload className="h-6 w-6 text-primary shrink-0" />
             <div>
               <p className="text-sm font-medium">{uploading ? "Processing..." : "Upload Document"}</p>
               <p className="text-xs text-muted-foreground">PDF, PNG, JPG, or TXT</p>
@@ -54,15 +54,15 @@ export default function DocumentsPage() {
             <input type="file" accept=".pdf,.png,.jpg,.jpeg,.txt" className="hidden" onChange={handleUpload} />
           </label>
 
-          <Card className="flex-1 min-w-[200px]">
+          <Card className="flex-1 w-full">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm">Sample Documents</CardTitle>
+              <CardTitle className="text-xs sm:text-sm">Sample Documents</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               {samples.map((s) => (
-                <Button key={s.filename} variant="outline" size="sm" className="w-full justify-start" onClick={() => extractSample(s.filename)} disabled={loading}>
-                  <FileText className="h-4 w-4 mr-2" />
-                  {s.filename}
+                <Button key={s.filename} variant="outline" size="sm" className="w-full justify-start text-xs sm:text-sm" onClick={() => extractSample(s.filename)} disabled={loading}>
+                  <FileText className="h-4 w-4 mr-2 shrink-0" />
+                  <span className="truncate">{s.filename}</span>
                 </Button>
               ))}
             </CardContent>
@@ -72,12 +72,12 @@ export default function DocumentsPage() {
         {loading && <div className="h-48 animate-pulse rounded-lg bg-muted" />}
 
         {result && !loading && (
-          <div className="grid gap-6 lg:grid-cols-2 animate-fade-in">
+          <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 animate-fade-in">
             <Card>
               <CardHeader>
-                <CardTitle>Extracted Fields — {result.filename}</CardTitle>
+                <CardTitle className="text-base sm:text-lg">Extracted Fields — {result.filename}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0 sm:p-6">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -89,8 +89,8 @@ export default function DocumentsPage() {
                   <TableBody>
                     {result.fields.map((f, i) => (
                       <TableRow key={i}>
-                        <TableCell className="font-medium capitalize">{f.field.replace("_", " ")}</TableCell>
-                        <TableCell>{f.value}</TableCell>
+                        <TableCell className="font-medium capitalize whitespace-nowrap">{f.field.replace("_", " ")}</TableCell>
+                        <TableCell className="whitespace-nowrap">{f.value}</TableCell>
                         <TableCell>{(f.confidence * 100).toFixed(0)}%</TableCell>
                       </TableRow>
                     ))}
@@ -98,8 +98,8 @@ export default function DocumentsPage() {
                 </Table>
 
                 {result.line_items.length > 0 && (
-                  <div className="mt-6">
-                    <h4 className="text-sm font-semibold mb-2">Line Items</h4>
+                  <div className="mt-6 p-4 sm:p-0">
+                    <h4 className="text-xs sm:text-sm font-semibold mb-2">Line Items</h4>
                     <Table>
                       <TableHeader>
                         <TableRow>
@@ -113,7 +113,7 @@ export default function DocumentsPage() {
                         {result.line_items.map((item) => (
                           <TableRow key={item.line}>
                             <TableCell>{item.line}</TableCell>
-                            <TableCell>{item.description}</TableCell>
+                            <TableCell className="whitespace-nowrap">{item.description}</TableCell>
                             <TableCell>{item.quantity}</TableCell>
                             <TableCell>${item.total.toLocaleString()}</TableCell>
                           </TableRow>
@@ -127,13 +127,13 @@ export default function DocumentsPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
                   <Sparkles className="h-5 w-5 text-primary" />
                   AI Summary
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-wrap">{result.ai_summary}</p>
+                <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground whitespace-pre-wrap">{result.ai_summary}</p>
               </CardContent>
             </Card>
           </div>
@@ -142,3 +142,4 @@ export default function DocumentsPage() {
     </PageShell>
   );
 }
+

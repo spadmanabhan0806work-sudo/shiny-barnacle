@@ -53,16 +53,16 @@ export default function SuppliersPage() {
   return (
     <PageShell title="Supplier Risk Intelligence" description="Monitor supplier performance and AI-driven risk analysis">
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <Tabs value={filter} onValueChange={setFilter}>
-            <TabsList>
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+          <Tabs value={filter} onValueChange={setFilter} className="w-full sm:w-auto">
+            <TabsList className="w-full sm:w-auto overflow-x-auto justify-start">
               <TabsTrigger value="all">All</TabsTrigger>
               <TabsTrigger value="high">High Risk</TabsTrigger>
               <TabsTrigger value="medium">Medium</TabsTrigger>
               <TabsTrigger value="low">Low Risk</TabsTrigger>
             </TabsList>
           </Tabs>
-          <Card className="p-4 w-64">
+          <Card className="p-4 w-full sm:w-64">
             <RiskDistributionChart
               data={[
                 { name: "High", value: riskCounts.high },
@@ -83,7 +83,7 @@ export default function SuppliersPage() {
                   <TableHead>Category</TableHead>
                   <TableHead>Risk Score</TableHead>
                   <TableHead>OTD %</TableHead>
-                  <TableHead>Quality Issues</TableHead>
+                  <TableHead>Quality Incidents</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead></TableHead>
                 </TableRow>
@@ -91,9 +91,9 @@ export default function SuppliersPage() {
               <TableBody>
                 {suppliers.map((s) => (
                   <TableRow key={s.id}>
-                    <TableCell className="font-medium">{s.name}</TableCell>
-                    <TableCell>{s.country}</TableCell>
-                    <TableCell>{s.category}</TableCell>
+                    <TableCell className="font-medium whitespace-nowrap">{s.name}</TableCell>
+                    <TableCell className="whitespace-nowrap">{s.country}</TableCell>
+                    <TableCell className="whitespace-nowrap">{s.category}</TableCell>
                     <TableCell>{s.risk_score}</TableCell>
                     <TableCell>{s.on_time_delivery_pct}%</TableCell>
                     <TableCell>{s.quality_incidents}</TableCell>
@@ -116,18 +116,18 @@ export default function SuppliersPage() {
       {selected && (
         <div className="fixed inset-0 z-50 flex justify-end bg-black/50" onClick={() => setSelected(null)}>
           <div
-            className="h-full w-full max-w-lg overflow-y-auto bg-card border-l border-border p-6 animate-slide-up"
+            className="h-full w-full max-w-full sm:max-w-lg overflow-y-auto bg-card border-l border-border p-4 sm:p-6 animate-slide-up"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold">{selected.name}</h2>
+              <h2 className="text-lg sm:text-xl font-bold">{selected.name}</h2>
               <Button variant="ghost" size="icon" onClick={() => setSelected(null)}>
                 <X className="h-4 w-4" />
               </Button>
             </div>
 
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-3 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
                 <div><span className="text-muted-foreground">Risk Score</span><p className="font-semibold">{selected.risk_score}</p></div>
                 <div><span className="text-muted-foreground">Contract Expiry</span><p className="font-semibold">{selected.contract_expiry || "N/A"}</p></div>
                 <div><span className="text-muted-foreground">On-Time Delivery</span><p className="font-semibold">{selected.on_time_delivery_pct}%</p></div>
@@ -142,10 +142,10 @@ export default function SuppliersPage() {
                 <>
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-sm">Risk Factors</CardTitle>
+                      <CardTitle className="text-xs sm:text-sm">Risk Factors</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <ul className="space-y-2 text-sm">
+                      <ul className="space-y-2 text-xs sm:text-sm">
                         {analysis.risk_factors.map((f, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <span className="text-red-400">•</span> {f}
@@ -156,17 +156,17 @@ export default function SuppliersPage() {
                   </Card>
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-sm flex items-center gap-2">
+                      <CardTitle className="text-xs sm:text-sm flex items-center gap-2">
                         <Sparkles className="h-4 w-4 text-primary" /> AI Recommendations
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
+                      <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
                         {analysis.recommendations.map((r, i) => (
                           <li key={i}>→ {r}</li>
                         ))}
                       </ul>
-                      <p className="mt-4 text-sm leading-relaxed border-t border-border pt-4">{analysis.ai_analysis}</p>
+                      <p className="mt-4 text-xs sm:text-sm leading-relaxed border-t border-border pt-4">{analysis.ai_analysis}</p>
                     </CardContent>
                   </Card>
                 </>
@@ -178,3 +178,4 @@ export default function SuppliersPage() {
     </PageShell>
   );
 }
+

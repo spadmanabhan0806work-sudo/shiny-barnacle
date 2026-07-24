@@ -32,9 +32,9 @@ export function ForecastAreaChart({ data }: { data: { period: string; actual?: n
       <CardHeader>
         <CardTitle>Inventory Forecast</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-2 sm:px-6">
         <ResponsiveContainer width="100%" height={280}>
-          <AreaChart data={data}>
+          <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
             <XAxis dataKey="period" stroke="#64748b" fontSize={11} />
             <YAxis stroke="#64748b" fontSize={11} />
@@ -55,12 +55,12 @@ export function UtilizationBarChart({ data }: { data: { name: string; utilizatio
       <CardHeader>
         <CardTitle>Warehouse Utilization</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-2 sm:px-6">
         <ResponsiveContainer width="100%" height={280}>
-          <BarChart data={data} layout="vertical">
+          <BarChart data={data} layout="vertical" margin={{ top: 10, right: 15, left: -10, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
             <XAxis type="number" domain={[0, 100]} stroke="#64748b" fontSize={11} />
-            <YAxis type="category" dataKey="name" stroke="#64748b" fontSize={11} width={120} />
+            <YAxis type="category" dataKey="name" stroke="#64748b" fontSize={11} width={95} />
             <Tooltip {...tooltipStyle} formatter={(v: number) => [`${v}%`, "Utilization"]} />
             <Bar dataKey="utilization" fill="#3b82f6" radius={[0, 4, 4, 0]} />
           </BarChart>
@@ -76,10 +76,10 @@ export function TransportPieChart({ data }: { data: { status: string; count: num
       <CardHeader>
         <CardTitle>Transportation Status</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-2 sm:px-6">
         <ResponsiveContainer width="100%" height={280}>
           <PieChart>
-            <Pie data={data} dataKey="count" nameKey="status" cx="50%" cy="50%" outerRadius={90} label>
+            <Pie data={data} dataKey="count" nameKey="status" cx="50%" cy="50%" outerRadius={75} label>
               {data.map((_, i) => (
                 <Cell key={i} fill={COLORS[i % COLORS.length]} />
               ))}
@@ -99,8 +99,8 @@ export function DemandForecastChart({
   data: { period: string; actual: number | null; forecast: number; lower_bound: number; upper_bound: number }[];
 }) {
   return (
-    <ResponsiveContainer width="100%" height={350}>
-      <LineChart data={data}>
+    <ResponsiveContainer width="100%" height={320}>
+      <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
         <XAxis dataKey="period" stroke="#64748b" fontSize={11} />
         <YAxis stroke="#64748b" fontSize={11} />
@@ -117,9 +117,9 @@ export function DemandForecastChart({
 
 export function RiskDistributionChart({ data }: { data: { name: string; value: number }[] }) {
   return (
-    <ResponsiveContainer width="100%" height={200}>
+    <ResponsiveContainer width="100%" height={180}>
       <PieChart>
-        <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={40} outerRadius={70}>
+        <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={35} outerRadius={60}>
           <Cell fill="#ef4444" />
           <Cell fill="#f59e0b" />
           <Cell fill="#10b981" />
@@ -130,3 +130,4 @@ export function RiskDistributionChart({ data }: { data: { name: string; value: n
     </ResponsiveContainer>
   );
 }
+

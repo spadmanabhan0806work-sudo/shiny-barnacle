@@ -39,19 +39,19 @@ export default function LogisticsPage() {
     <PageShell title="Logistics Dashboard" description="Shipment tracking, warehouse capacity, and fleet status">
       <div className="space-y-6">
         {delayedCount > 0 && (
-          <div className="flex items-center gap-3 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3">
-            <AlertTriangle className="h-5 w-5 text-red-400" />
-            <p className="text-sm">
+          <div className="flex items-center gap-3 rounded-lg border border-red-500/30 bg-red-500/10 p-3 sm:px-4 sm:py-3">
+            <AlertTriangle className="h-5 w-5 text-red-400 shrink-0" />
+            <p className="text-xs sm:text-sm">
               <span className="font-semibold text-red-400">{delayedCount} delayed shipments</span> require immediate attention
             </p>
           </div>
         )}
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <CardTitle>Shipment Tracking</CardTitle>
+                <CardTitle className="text-base sm:text-lg">Shipment Tracking</CardTitle>
               </CardHeader>
               <CardContent className="p-0">
                 <Table>
@@ -67,12 +67,12 @@ export default function LogisticsPage() {
                   <TableBody>
                     {shipments.map((s) => (
                       <TableRow key={s.id}>
-                        <TableCell className="font-mono text-xs">{s.tracking_number}</TableCell>
-                        <TableCell>{s.supplier_name}</TableCell>
-                        <TableCell className="text-xs text-muted-foreground">
+                        <TableCell className="font-mono text-xs whitespace-nowrap">{s.tracking_number}</TableCell>
+                        <TableCell className="whitespace-nowrap">{s.supplier_name}</TableCell>
+                        <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
                           {s.origin} → {s.destination}
                         </TableCell>
-                        <TableCell>{s.eta || "TBD"}</TableCell>
+                        <TableCell className="whitespace-nowrap">{s.eta || "TBD"}</TableCell>
                         <TableCell>
                           <Badge variant={statusBadge(s.status)}>{s.status.replace("_", " ")}</Badge>
                         </TableCell>
@@ -86,14 +86,14 @@ export default function LogisticsPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
                 <AlertTriangle className="h-4 w-4 text-amber-400" />
                 Risk Alerts
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3 max-h-[400px] overflow-y-auto">
+            <CardContent className="space-y-3 max-h-[350px] sm:max-h-[400px] overflow-y-auto">
               {alerts.map((a) => (
-                <div key={a.id} className="rounded-lg border border-border/50 bg-muted/20 p-3 text-sm">
+                <div key={a.id} className="rounded-lg border border-border/50 bg-muted/20 p-3 text-xs sm:text-sm">
                   <div className="flex items-center gap-2">
                     <Badge variant={a.severity === "high" ? "danger" : "warning"}>{a.severity}</Badge>
                   </div>
@@ -109,22 +109,22 @@ export default function LogisticsPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
               <Truck className="h-5 w-5 text-primary" />
               Fleet Status
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {vehicles.map((v) => (
                 <div key={v.id} className="rounded-lg border border-border/50 bg-muted/20 p-4">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono font-semibold">{v.vehicle_id}</span>
+                    <span className="font-mono font-semibold text-sm sm:text-base">{v.vehicle_id}</span>
                     <Badge variant={statusBadge(v.status)}>{v.status.replace("_", " ")}</Badge>
                   </div>
-                  <p className="mt-2 text-sm text-muted-foreground">{v.type}</p>
+                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground">{v.type}</p>
                   <div className="mt-3 flex items-center gap-1 text-xs text-muted-foreground">
-                    <MapPin className="h-3 w-3" />
+                    <MapPin className="h-3 w-3 shrink-0" />
                     {v.location}
                   </div>
                   <p className="mt-1 text-xs">Driver: {v.driver}</p>
@@ -140,3 +140,4 @@ export default function LogisticsPage() {
     </PageShell>
   );
 }
+

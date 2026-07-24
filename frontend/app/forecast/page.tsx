@@ -55,16 +55,16 @@ export default function ForecastPage() {
   return (
     <PageShell title="AI Demand Forecast" description="Upload sales data and generate AI-powered demand forecasts">
       <div className="space-y-6">
-        <div className="flex flex-wrap items-center gap-4">
-          <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-border px-6 py-4 hover:bg-muted/30 transition-colors">
-            <Upload className="h-5 w-5 text-primary" />
-            <span className="text-sm">{uploading ? "Uploading..." : "Upload Sales CSV"}</span>
+        <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+          <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-border px-4 py-2.5 sm:px-6 sm:py-4 hover:bg-muted/30 transition-colors w-full sm:w-auto">
+            <Upload className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+            <span className="text-xs sm:text-sm font-medium">{uploading ? "Uploading..." : "Upload Sales CSV"}</span>
             <input type="file" accept=".csv" className="hidden" onChange={handleUpload} />
           </label>
           <select
             value={selectedSku}
             onChange={(e) => setSelectedSku(e.target.value)}
-            className="h-10 rounded-md border border-border bg-muted/50 px-3 text-sm"
+            className="h-10 rounded-md border border-border bg-muted/50 px-3 text-xs sm:text-sm w-full sm:w-auto max-w-full text-ellipsis overflow-hidden"
           >
             {skus.map((s) => (
               <option key={s.sku} value={s.sku}>
@@ -72,29 +72,29 @@ export default function ForecastPage() {
               </option>
             ))}
           </select>
-          <Button onClick={runForecast} disabled={loading}>
+          <Button onClick={runForecast} disabled={loading} className="w-full sm:w-auto">
             {loading ? "Generating..." : "Regenerate Forecast"}
           </Button>
         </div>
 
         {result && (
           <div className="space-y-6 animate-fade-in">
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm text-muted-foreground">Safety Stock</CardTitle>
+                  <CardTitle className="text-xs sm:text-sm text-muted-foreground">Safety Stock</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-3xl font-bold">{result.safety_stock}</p>
+                  <p className="text-2xl sm:text-3xl font-bold">{result.safety_stock}</p>
                   <p className="text-xs text-muted-foreground mt-1">units recommended</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm text-muted-foreground">Confidence</CardTitle>
+                  <CardTitle className="text-xs sm:text-sm text-muted-foreground">Confidence</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-3xl font-bold">{(result.confidence * 100).toFixed(0)}%</p>
+                  <p className="text-2xl sm:text-3xl font-bold">{(result.confidence * 100).toFixed(0)}%</p>
                   <div className="mt-2 h-2 rounded-full bg-muted">
                     <div className="h-2 rounded-full bg-primary" style={{ width: `${result.confidence * 100}%` }} />
                   </div>
@@ -102,33 +102,33 @@ export default function ForecastPage() {
               </Card>
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm text-muted-foreground">Product</CardTitle>
+                  <CardTitle className="text-xs sm:text-sm text-muted-foreground">Product</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg font-bold">{result.sku}</p>
-                  <p className="text-sm text-muted-foreground">{result.product_name}</p>
+                  <p className="text-base sm:text-lg font-bold truncate">{result.sku}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground truncate">{result.product_name}</p>
                 </CardContent>
               </Card>
             </div>
 
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
                   <TrendingUp className="h-5 w-5 text-primary" />
                   Forecast Chart — {result.product_name}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="px-2 sm:px-6">
                 <DemandForecastChart data={result.forecast} />
               </CardContent>
             </Card>
 
-            <div className="grid gap-6 lg:grid-cols-2">
+            <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
               <Card>
                 <CardHeader>
-                  <CardTitle>Recommended Inventory</CardTitle>
+                  <CardTitle className="text-base sm:text-lg">Recommended Inventory</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-0 sm:p-6">
                   <Table>
                     <TableHeader>
                       <TableRow>
@@ -141,7 +141,7 @@ export default function ForecastPage() {
                     <TableBody>
                       {result.recommended_inventory.map((r, i) => (
                         <TableRow key={i}>
-                          <TableCell>{r.warehouse}</TableCell>
+                          <TableCell className="font-medium">{r.warehouse}</TableCell>
                           <TableCell>{r.current_stock}</TableCell>
                           <TableCell>{r.recommended_stock}</TableCell>
                           <TableCell>
@@ -156,13 +156,13 @@ export default function ForecastPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
                     <Sparkles className="h-5 w-5 text-primary" />
                     AI Summary
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-wrap">{result.ai_summary}</p>
+                  <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground whitespace-pre-wrap">{result.ai_summary}</p>
                 </CardContent>
               </Card>
             </div>
@@ -172,3 +172,4 @@ export default function ForecastPage() {
     </PageShell>
   );
 }
+

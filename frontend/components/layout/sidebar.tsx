@@ -11,6 +11,7 @@ import {
   Sparkles,
   Truck,
   Users,
+  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -24,44 +25,76 @@ const navItems = [
   { href: "/reports", label: "Executive Report", icon: Sparkles },
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+  mobileOpen?: boolean;
+  onMobileClose?: () => void;
+}
+
+export function Sidebar({ mobileOpen = false, onMobileClose }: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-border bg-card/50 backdrop-blur-xl">
-      <div className="flex h-16 items-center gap-2 border-b border-border px-6">
-        <Package className="h-7 w-7 text-primary" />
-        <div>
-          <h1 className="text-lg font-bold tracking-tight">Operyx AI</h1>
-          <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Supply Chain</p>
+    <>
+      {/* Mobile Backdrop */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden transition-opacity"
+          onClick={onMobileClose}
+        />
+      )}
+
+      {/* Sidebar Drawer */}
+      <aside
+        className={cn(
+          "fixed left-0 top-0 z-50 flex h-screen w-64 flex-col border-r border-border bg-card/95 lg:bg-card/50 backdrop-blur-xl transition-transform duration-300 ease-in-out lg:translate-x-0",
+          mobileOpen ? "translate-x-0" : "-translate-x-full"
+        )}
+      >
+        <div className="flex h-16 items-center justify-between border-b border-border px-6">
+          <div className="flex items-center gap-2">
+            <Package className="h-7 w-7 text-primary" />
+            <div>
+              <h1 className="text-lg font-bold tracking-tight">Operyx AI</h1>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Supply Chain</p>
+            </div>
+          </div>
+          <button
+            onClick={onMobileClose}
+            className="rounded-lg p-1.5 text-muted-foreground hover:bg-accent hover:text-foreground lg:hidden"
+            aria-label="Close menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
         </div>
-      </div>
-      <nav className="flex-1 space-y-1 p-4">
-        {navItems.map((item) => {
-          const active = pathname === item.href;
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
-                active
-                  ? "bg-primary/15 text-primary border border-primary/20"
-                  : "text-muted-foreground hover:bg-accent hover:text-foreground"
-              )}
-            >
-              <item.icon className="h-4 w-4" />
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
-      <div className="border-t border-border p-4">
-        <div className="rounded-lg bg-muted/50 p-3 text-xs text-muted-foreground">
-          <p className="font-medium text-foreground">PoC Demo Mode</p>
-          <p className="mt-1">AI Provider: Mock</p>
+        <nav className="flex-1 space-y-1 p-4 overflow-y-auto">
+          {navItems.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={onMobileClose}
+                className={cn(
+                  "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
+                  active
+                    ? "bg-primary/15 text-primary border border-primary/20"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                )}
+              >
+                <item.icon className="h-4 w-4 shrink-0" />
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+        <div className="border-t border-border p-4">
+          <div className="rounded-lg bg-muted/50 p-3 text-xs text-muted-foreground">
+            <p className="font-medium text-foreground">PoC Demo Mode</p>
+            <p className="mt-1">AI Provider: Mock</p>
+          </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 }
+
