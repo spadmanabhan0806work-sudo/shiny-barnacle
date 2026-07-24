@@ -13,8 +13,8 @@ from src.domain.entities.intent_extraction import IntentExtraction
 from src.domain.entities.review_queue_item import ReviewQueueItem, ReviewStatus
 from src.domain.entities.transcript import Transcript, TranscriptSegment
 from src.domain.repositories.annotation_repository import AnnotationRepository
-from src.domain.repositories.audit_log_repository import AuditLogRepository, AuditLogEntry
-from src.domain.repositories.batch_upload_repository import BatchUploadRepository, BatchUpload
+from src.domain.repositories.audit_log_repository import AuditLogEntry, AuditLogRepository
+from src.domain.repositories.batch_upload_repository import BatchUpload, BatchUploadRepository
 from src.domain.repositories.call_recording_repository import CallRecordingRepository
 from src.domain.repositories.evaluation_run_repository import EvaluationRunRepository
 from src.domain.repositories.intent_extraction_repository import IntentExtractionRepository

@@ -1,6 +1,7 @@
 import pytest
 from app.services.dashboard_service import DashboardService
 
+
 @pytest.mark.asyncio
 async def test_dashboard_kpis_endpoint(backend_client):
     response = await backend_client.get("/api/dashboard/kpis")

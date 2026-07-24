@@ -13,6 +13,7 @@ from src.infrastructure.audio.audio_downloader import (
     DownloadedAudio,
 )
 
+
 class TestAudioDownloader:
     def test_extension_from_magic_wav(self):
         assert AudioDownloader._extension_from_magic(b"RIFF....WAVE") == "wav"
@@ -120,9 +121,9 @@ async def test_batch_ingest_from_urls(client: AsyncClient):
 
 @pytest.mark.asyncio
 async def test_ingest_from_url_use_case_download_failure(test_session, tmp_path):
+    from src.adapters.storage.local_storage import LocalStorageAdapter
     from src.application.use_cases.ingest_from_url import IngestCallFromUrlUseCase
     from src.infrastructure.config.settings import Settings
-    from src.adapters.storage.local_storage import LocalStorageAdapter
 
     settings = Settings(
         tenant_id="default",
@@ -148,8 +149,8 @@ async def test_ingest_from_url_use_case_download_failure(test_session, tmp_path)
 
 @pytest.mark.asyncio
 async def test_batch_ingest_from_urls_use_case(test_session, tmp_path):
-    from src.application.use_cases.ingest_from_url import BatchIngestFromUrlsUseCase
     from src.adapters.storage.local_storage import LocalStorageAdapter
+    from src.application.use_cases.ingest_from_url import BatchIngestFromUrlsUseCase
     from src.infrastructure.config.settings import Settings
 
     settings = Settings(tenant_id="default", storage_local_path=str(tmp_path))

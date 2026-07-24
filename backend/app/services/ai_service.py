@@ -51,22 +51,22 @@ class AIService:
         try:
             orders = self.db.query(Order).limit(10).all()
             order_summary = ", ".join(f"{o.po_number} (${o.total_amount:,.0f}, {o.status})" for o in orders[:5]) if orders else "None"
-            
+
             shipments = self.db.query(Shipment).all()
             delayed = [s for s in shipments if s.status == "delayed"]
             at_risk = [s for s in shipments if s.status == "at_risk"]
             delayed_summary = ", ".join(f"{s.tracking_number} ({s.supplier_name} -> {s.destination}, ETA: {s.eta or 'TBD'})" for s in delayed) if delayed else "None"
-            
+
             suppliers = self.db.query(Supplier).all()
             high_risk = [s for s in suppliers if s.risk_level == "high"]
             high_risk_summary = ", ".join(f"{s.name} (Risk Score: {s.risk_score}, OTD: {s.on_time_delivery_pct}%, Quality Incidents: {s.quality_incidents})" for s in high_risk) if high_risk else "None"
-            
+
             warehouses = self.db.query(Warehouse).all()
             wh_summary = ", ".join(f"{w.name} ({w.utilization_pct}% utilized, {w.used_units:,}/{w.capacity_units:,} units)" for w in warehouses) if warehouses else "None"
-            
+
             low_stock = self.db.query(Inventory).filter(Inventory.quantity < Inventory.reorder_point).all()
             low_stock_summary = ", ".join(f"{i.sku} ({i.product_name}): {i.quantity} units (reorder point: {i.reorder_point}) at {i.warehouse_name}" for i in low_stock[:5]) if low_stock else "None"
-            
+
             return (
                 f"\nLive Database Context:\n"
                 f"- Active Orders ({len(orders)}): {order_summary}\n"
@@ -115,7 +115,7 @@ class AIService:
             genai.configure(api_key=self.settings.google_api_key)
             model_name = getattr(self.settings, "gemini_model", "gemini-2.5-flash")
             model = genai.GenerativeModel(model_name)
-            
+
             history_text = ""
             history_list = context.get("history") or []
             if history_list:

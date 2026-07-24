@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.mark.asyncio
 async def test_list_document_samples(backend_client):
     response = await backend_client.get("/api/documents/samples")
@@ -24,7 +25,7 @@ async def test_extract_document_fields(backend_client):
     files = {"file": ("invoice_12345.txt", file_content, "text/plain")}
     upload_res = await backend_client.post("/api/documents/upload", files=files, data={"doc_type": "invoice"})
     doc_id = upload_res.json()["document_id"]
-    
+
     extract_payload = {"document_id": doc_id, "filename": "invoice_12345.txt"}
     response = await backend_client.post("/api/documents/extract", json=extract_payload)
     assert response.status_code == 200

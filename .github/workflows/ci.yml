@@ -23,7 +23,8 @@ jobs:
           pip install -e ".[dev]" ruff
 
       - name: Ruff lint
-        run: ruff check .
+        run: ruff check src tests eval backend
+
 
 
       - name: Run tests

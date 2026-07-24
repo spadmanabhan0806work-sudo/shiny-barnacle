@@ -6,8 +6,8 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from src.adapters.stt.mock_stt_adapter import MockSTTAdapter
 from src.adapters.storage.local_storage import LocalStorageAdapter
+from src.adapters.stt.mock_stt_adapter import MockSTTAdapter
 from src.application.orchestrators.call_processing_orchestrator import CallProcessingOrchestrator
 from src.domain.entities.call_recording import CallRecording, CallStatus
 from src.infrastructure.audio.ffmpeg_preprocessor import AudioMetadata
@@ -140,17 +140,17 @@ async def test_process_call_marks_failed_on_error(test_session, tmp_path):
 async def test_full_process_call_with_mock_providers(test_session, tmp_path):
     """End-to-end pipeline: STT → LLM extract → validate → save intent."""
     from src.adapters.llm.mock_llm_adapter import MockLLMAdapter
-    from src.adapters.stt.mock_stt_adapter import MockSTTAdapter
     from src.adapters.storage.local_storage import LocalStorageAdapter
+    from src.adapters.stt.mock_stt_adapter import MockSTTAdapter
     from src.application.services.confidence_router import ConfidenceRouter
     from src.domain.services.intent_validator import IntentValidator
     from src.domain.services.numeric_parser import NumericParser
     from src.domain.services.stock_symbol_resolver import StockSymbolResolver
-    from src.infrastructure.prompts.prompt_registry import PromptRegistry
     from src.infrastructure.persistence.repositories import (
         SqlAlchemyIntentExtractionRepository,
         SqlAlchemyReviewQueueRepository,
     )
+    from src.infrastructure.prompts.prompt_registry import PromptRegistry
 
     storage = LocalStorageAdapter(tmp_path / "uploads")
     call_id = uuid.uuid4()
@@ -311,11 +311,11 @@ async def test_hitl_routing_creates_review_item(test_session, tmp_path):
     from src.domain.services.intent_validator import IntentValidator
     from src.domain.services.numeric_parser import NumericParser
     from src.domain.services.stock_symbol_resolver import StockSymbolResolver
-    from src.infrastructure.prompts.prompt_registry import PromptRegistry
     from src.infrastructure.persistence.repositories import (
         SqlAlchemyIntentExtractionRepository,
         SqlAlchemyReviewQueueRepository,
     )
+    from src.infrastructure.prompts.prompt_registry import PromptRegistry
 
     storage = LocalStorageAdapter(tmp_path / "uploads")
     call_id = uuid.uuid4()

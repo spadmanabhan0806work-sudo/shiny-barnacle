@@ -1,8 +1,5 @@
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
 from app.routers import (
     copilot,
     dashboard,
@@ -13,6 +10,9 @@ from app.routers import (
     suppliers,
 )
 from app.seed import init_db
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from src.api.middleware.auth import AuthMiddleware
 from src.api.routes import (
     analytics,

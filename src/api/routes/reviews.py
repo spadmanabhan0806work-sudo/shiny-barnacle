@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from src.api.middleware.audit import audit_extraction_change, audit_review_change
 from src.infrastructure.persistence.database import get_db_session
 from src.infrastructure.persistence.models import (
     CallRecordingModel,
@@ -17,7 +18,6 @@ from src.infrastructure.persistence.repositories import (
     SqlAlchemyIntentExtractionRepository,
     SqlAlchemyReviewQueueRepository,
 )
-from src.api.middleware.audit import audit_extraction_change, audit_review_change
 
 router = APIRouter(prefix="/reviews", tags=["reviews"])
 

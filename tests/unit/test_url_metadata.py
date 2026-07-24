@@ -10,7 +10,6 @@ from src.infrastructure.audio.url_metadata import (
     parse_url_metadata,
 )
 
-
 SAMPLE_URL = (
     "https://sr.knowlarity.com/vr/fetchsound/"
     "?callid=75193f3c-2606-4984-9f34-888c3bf843b7"

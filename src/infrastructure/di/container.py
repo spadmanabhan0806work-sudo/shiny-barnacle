@@ -4,8 +4,8 @@ from pathlib import Path
 
 from src.infrastructure.config.settings import Settings
 from src.ports.llm_provider import LLMProvider
-from src.ports.stt_provider import SpeechToTextProvider
 from src.ports.storage_provider import StorageProvider
+from src.ports.stt_provider import SpeechToTextProvider
 
 
 class ProviderFactory:

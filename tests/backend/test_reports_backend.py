@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.mark.asyncio
 async def test_executive_report_generation(backend_client):
     response = await backend_client.post("/api/reports/executive")

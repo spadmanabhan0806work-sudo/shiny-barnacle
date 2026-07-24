@@ -6,7 +6,6 @@ import pytest
 from src.adapters.llm.mock_llm_adapter import MockLLMAdapter
 from src.infrastructure.prompts.prompt_registry import PromptRegistry
 
-
 FIXTURES = Path(__file__).parent / "fixtures"
 
 

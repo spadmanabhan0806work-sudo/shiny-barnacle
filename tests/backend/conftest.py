@@ -8,14 +8,13 @@ if backend_path not in sys.path:
 
 import pytest  # noqa: E402
 import pytest_asyncio  # noqa: E402
+from app.database import Base, get_db  # noqa: E402
+from app.main import app  # noqa: E402
+from app.seed import seed_database  # noqa: E402
 from httpx import ASGITransport, AsyncClient  # noqa: E402
 from sqlalchemy import create_engine  # noqa: E402
 from sqlalchemy.orm import sessionmaker  # noqa: E402
 from sqlalchemy.pool import StaticPool  # noqa: E402
-
-from app.database import Base, get_db  # noqa: E402
-from app.main import app  # noqa: E402
-from app.seed import seed_database  # noqa: E402
 
 # Create shared in-memory sqlite engine with StaticPool for backend tests
 engine = create_engine(

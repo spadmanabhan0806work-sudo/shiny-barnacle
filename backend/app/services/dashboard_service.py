@@ -30,8 +30,9 @@ class DashboardService:
         }
 
     def get_charts(self) -> dict:
-        from app.models import SalesHistory
         from collections import defaultdict
+
+        from app.models import SalesHistory
 
         sales = self.db.query(SalesHistory).all()
         period_totals: dict[str, int] = defaultdict(int)

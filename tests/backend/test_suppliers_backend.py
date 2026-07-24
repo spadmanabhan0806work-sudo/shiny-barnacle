@@ -1,6 +1,7 @@
 import pytest
 from app.services.supplier_service import SupplierService
 
+
 @pytest.mark.asyncio
 async def test_list_suppliers_all(backend_client):
     response = await backend_client.get("/api/suppliers")

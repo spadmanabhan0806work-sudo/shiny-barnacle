@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.mark.asyncio
 async def test_list_skus(backend_client):
     response = await backend_client.get("/api/forecast/skus")

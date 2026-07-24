@@ -1,8 +1,8 @@
 
 import pytest
 
-from src.infrastructure.di.container import ProviderFactory
 from src.infrastructure.config.settings import Settings
+from src.infrastructure.di.container import ProviderFactory
 
 
 class TestProviderFactorySTT:

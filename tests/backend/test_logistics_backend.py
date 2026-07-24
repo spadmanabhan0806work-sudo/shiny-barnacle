@@ -1,6 +1,7 @@
 import pytest
 from app.services.logistics_service import LogisticsService
 
+
 @pytest.mark.asyncio
 async def test_list_shipments_all(backend_client):
     response = await backend_client.get("/api/logistics/shipments")
