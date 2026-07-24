@@ -16,10 +16,11 @@ class GeminiLLMAdapter:
     def __init__(
         self,
         *,
-        model: str = "gemini-1.5-flash",
+        model: str = "gemini-2.5-flash",
         api_key: str | None = None,
         prompt_registry: PromptRegistry | None = None,
     ) -> None:
+
         self._model = model
         self._api_key = api_key
         self._registry = prompt_registry

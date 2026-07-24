@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime
 from typing import Any
 
@@ -5,6 +6,8 @@ from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.models import Inventory, Order, Shipment, Supplier, Warehouse
+
+logger = logging.getLogger(__name__)
 
 
 class AIService:
@@ -15,7 +18,7 @@ class AIService:
 
     async def generate(self, prompt: str, context: dict[str, Any] | None = None, system: str = "") -> str:
         context = context or {}
-        if self.provider == "mock" or not self._has_api_key():
+        if self.provider == "mock":
             return self._mock_response(prompt, context, system)
         if self.provider == "claude":
             return await self._call_claude(prompt, context, system)
@@ -38,26 +41,43 @@ class AIService:
             return ""
         lines = ["Supply Chain Context:"]
         for key, value in context.items():
-            lines.append(f"- {key}: {value}")
+            if key != "history":
+                lines.append(f"- {key}: {value}")
         return "\n".join(lines)
 
     def _get_db_context_str(self) -> str:
         if not self.db:
             return ""
         try:
-            orders = self.db.query(Order).count()
-            delayed = self.db.query(Shipment).filter(Shipment.status == "delayed").count()
-            suppliers = self.db.query(Supplier).filter(Supplier.risk_level == "high").all()
-            supplier_names = ", ".join(s.name for s in suppliers[:3]) if suppliers else "None"
-            low_stock = self.db.query(Inventory).filter(Inventory.quantity < Inventory.reorder_point).count()
+            orders = self.db.query(Order).limit(10).all()
+            order_summary = ", ".join(f"{o.po_number} (${o.total_amount:,.0f}, {o.status})" for o in orders[:5]) if orders else "None"
+            
+            shipments = self.db.query(Shipment).all()
+            delayed = [s for s in shipments if s.status == "delayed"]
+            at_risk = [s for s in shipments if s.status == "at_risk"]
+            delayed_summary = ", ".join(f"{s.tracking_number} ({s.supplier_name} -> {s.destination}, ETA: {s.eta or 'TBD'})" for s in delayed) if delayed else "None"
+            
+            suppliers = self.db.query(Supplier).all()
+            high_risk = [s for s in suppliers if s.risk_level == "high"]
+            high_risk_summary = ", ".join(f"{s.name} (Risk Score: {s.risk_score}, OTD: {s.on_time_delivery_pct}%, Quality Incidents: {s.quality_incidents})" for s in high_risk) if high_risk else "None"
+            
+            warehouses = self.db.query(Warehouse).all()
+            wh_summary = ", ".join(f"{w.name} ({w.utilization_pct}% utilized, {w.used_units:,}/{w.capacity_units:,} units)" for w in warehouses) if warehouses else "None"
+            
+            low_stock = self.db.query(Inventory).filter(Inventory.quantity < Inventory.reorder_point).all()
+            low_stock_summary = ", ".join(f"{i.sku} ({i.product_name}): {i.quantity} units (reorder point: {i.reorder_point}) at {i.warehouse_name}" for i in low_stock[:5]) if low_stock else "None"
+            
             return (
                 f"\nLive Database Context:\n"
-                f"- Active Orders: {orders}\n"
-                f"- Delayed Shipments: {delayed}\n"
-                f"- High-Risk Suppliers: {len(suppliers)} ({supplier_names})\n"
-                f"- Low-Stock Items: {low_stock}\n"
+                f"- Active Orders ({len(orders)}): {order_summary}\n"
+                f"- Delayed Shipments ({len(delayed)}): {delayed_summary}\n"
+                f"- At-Risk Shipments: {len(at_risk)}\n"
+                f"- High-Risk Suppliers ({len(high_risk)}): {high_risk_summary}\n"
+                f"- Warehouse Capacity: {wh_summary}\n"
+                f"- Low-Stock Items ({len(low_stock)}): {low_stock_summary}\n"
             )
-        except Exception:
+        except Exception as err:
+            logger.warning(f"Failed to assemble DB context: {err}")
             return ""
 
     async def _call_claude(self, prompt: str, context: dict, system: str) -> str:
@@ -93,17 +113,34 @@ class AIService:
 
         try:
             genai.configure(api_key=self.settings.google_api_key)
-            model = genai.GenerativeModel("gemini-1.5-flash")
+            model_name = getattr(self.settings, "gemini_model", "gemini-2.5-flash")
+            model = genai.GenerativeModel(model_name)
+            
+            history_text = ""
+            history_list = context.get("history") or []
+            if history_list:
+                formatted_history = []
+                for msg in history_list[-10:]:
+                    role = msg.get("role", "user") if isinstance(msg, dict) else getattr(msg, "role", "user")
+                    content = msg.get("content", "") if isinstance(msg, dict) else getattr(msg, "content", "")
+                    formatted_history.append(f"{role.capitalize()}: {content}")
+                history_text = "\nConversation History:\n" + "\n".join(formatted_history)
+
             full_prompt = (
-                f"System: {system or 'You are an AI supply chain & procurement assistant.'}\n"
+                f"System Role: {system or 'You are an AI supply chain & procurement assistant.'}\n"
                 f"{self._get_db_context_str()}\n"
-                f"{self._build_context_block(context)}\n\n"
+                f"{self._build_context_block({k: v for k, v in context.items() if k != 'history'})}\n"
+                f"{history_text}\n\n"
                 f"User Question: {prompt}"
             )
             response = await model.generate_content_async(full_prompt)
             return response.text
-        except Exception:
+        except Exception as e:
+            logger.error(f"Gemini API call failed: {e}", exc_info=True)
+            if self.provider == "gemini" and self.settings.google_api_key:
+                raise e
             return self._mock_response(prompt, context, system)
+
 
     def _mock_response(self, prompt: str, context: dict, system: str) -> str:
         prompt_lower = prompt.lower()

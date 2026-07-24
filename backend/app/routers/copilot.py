@@ -21,8 +21,12 @@ async def chat(request: CopilotRequest, db: Session = Depends(get_db)):
     ai = AIService(db)
     reply = await ai.generate(
         request.message,
-        context={"history_length": len(request.history)},
-        system="procurement copilot",
+        context={
+            "history": [h.model_dump() for h in request.history],
+            "history_length": len(request.history),
+        },
+        system="Procurement Copilot AI assistant for supply chain management and logistics queries",
     )
     followups = [f for f in SUGGESTED_FOLLOWUPS if f.lower() not in request.message.lower()][:3]
     return CopilotResponse(reply=reply, suggested_followups=followups)
+

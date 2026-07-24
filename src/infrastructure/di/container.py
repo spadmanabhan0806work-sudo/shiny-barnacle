@@ -102,10 +102,11 @@ class ProviderFactory:
             manifest = self._settings.get("prompts.manifest_path", "./prompts/manifest.yaml")
             registry = PromptRegistry(prompts_base, Path(manifest))
             return GeminiLLMAdapter(
-                model=gemini_cfg.get("model", "gemini-1.5-flash"),
+                model=gemini_cfg.get("model", "gemini-2.5-flash"),
                 api_key=self._settings.google_api_key,
                 prompt_registry=registry,
             )
+
         if provider == "openai":
             from src.adapters.llm.openai_adapter import OpenAILLMAdapter
 
